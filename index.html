@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/app.css" />
+  <title>UHospital</title>
+</head>
+<body>
+
+  <h1 id="home">UHospital</h1>
+
+  <section id="login-section" class="login-container">
+    <h1>UHospital - Inicio de Sesión</h1>
+    <form>
+      <label>Name:</label>
+      <input type="text" id="userNameLogin"><br><br>
+      
+      <label>Password:</label>
+      <input type="password" id="passwordLogin"><br><br>
+      <button id="loginBtn">Iniciar Sesión</button>
+    </form>
+  </section>
+
+
+  <section id="registrarPaciente-section" class="registerPatient-container inactive">
+    <h1>UHospital - Registro de Paciente</h1>
+    <form>
+      <label>Nombre:</label>
+      <input type="text" id="nombre"><br><br>
+      <label>Apellido:</label>
+      <input type="number" id="age"><br><br>
+      <label>UserName:</label>
+      <input type="text" id="userName" ><br><br>
+      <label>Fecha de nacimiento:</label>
+      <input type="date" id="fecha-nacimiento"><br><br>
+      <label>Gender:</label>
+      <select id="gender" >
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select><br><br>
+      <label>Password:</label>
+      <input type="password" id="passwordNewPatient" ><br><br>
+      <label>Phone:</label>
+      <input type="tel" id="phone"><br><br>
+      <button id="registrarUsuarioBtn">Registrar nuevo Usuario</button>
+    </form>
+  </section>
+
+
+  <section id="modificarPaciente-section" class="modificar-paciente inactive">
+    <h1>UHospital - Modificar Paciente</h1>
+    <form>
+      <label>Nombre:</label>
+      <input type="text" id="nombre-modificar"><br><br>
+      <label>Apellido:</label>
+      <input type="text" id="apellido-modificar"><br><br>
+      <label>Fecha de nacimiento:</label>
+      <input type="date" id="fecha-nacimiento-modificar"><br><br>
+      <label>Password:</label>
+      <input type="password" id="password-modificar"><br><br>
+      <button id="ModificarPacienteBtn">Modificar</button>
+    </form>
+  </section>
+
+
+  <section id="hacerCita-section" class="hacer-cita inactive">
+    <h1>Solicitar una cita</h1>
+    <form>
+      <label>Fecha:</label>
+      <input type="date" id="fecha-cita"><br><br>
+      <label>Hora:</label>
+      <input type="time" id="hora-cita"><br><br>
+      <label>Motivo:</label>
+      <textarea id="motivo-cita"></textarea><br><br>
+      <button id="hacerCitaBtn">Hacer cita</button>
+    </form>
+  </section>
+
+
+  <section id="medicamentosSection" class="medicamentos inactive">
+    <h1>UHospital - Medicamentos</h1>
+    <div class="medicamentos-container">
+      <div class="medicamento">
+        <h2>Medicamento 1</h2>
+        <p>Descripción del medicamento 1.</p>
+        <button class="precio">$10.00</button>
+      </div>
+      <div class="medicamento">
+        <h2>Medicamento 2</h2>
+        <p>Descripción del medicamento 2.</p>
+        <button class="precio">$15.00</button>
+      </div>
+      <div class="medicamento">
+        <h2>Medicamento 3</h2>
+        <p>Descripción del medicamento 3.</p>
+        <button class="precio">$20.00</button>
+      </div>
+      <div class="medicamento">
+        <h2>Medicamento 4</h2>
+        <p>Descripción del medicamento 4.</p>
+        <button class="precio">$25.00</button>
+      </div>
+      <div class="medicamento">
+        <h2>Medicamento 5</h2>
+        <p>Descripción del medicamento 5.</p>
+        <button class="precio">$30.00</button>
+      </div>
+      <div class="medicamento">
+        <h2>Medicamento 6</h2>
+        <p>Descripción del medicamento 6.</p>
+        <button class="precio">$35.00</button>
+      </div>
+    </div>
+    <button id="SiguienteBtn">Siguiente</button>
+  </section>
+
+  <section id="hacerPedidoSection" class="hacer-pedido inactive">
+    <h1>UHospital - Hacer Pedido</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Medicamento 1</td>
+          <td>$10.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+        <tr>
+          <td>Medicamento 2</td>
+          <td>$15.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+        <tr>
+          <td>Medicamento 3</td>
+          <td>$20.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+        <tr>
+          <td>Medicamento 4</td>
+          <td>$25.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+        <tr>
+          <td>Medicamento 5</td>
+          <td>$30.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+        <tr>
+          <td>Medicamento 6</td>
+          <td>$35.00</td>
+          <td><span class="cantidad">0</span></td>
+          <td>$0.00</td>
+          <td><button class="agregar">+</button></td>
+          <td><button class="eliminar">-</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="realizar-pedido">Realizar Pedido</button>
+  </section>
+
+  <script src="./src/server.js"></script>
+  <script src="./src/nodes.js"></script>
+  <script src="./src/navigation.js"></script>
+  <script src="./src/login-validation.js"></script>
+</body>
+</html>

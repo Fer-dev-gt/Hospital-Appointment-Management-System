@@ -13,7 +13,7 @@ app.get('/', (req, res) => {                              // Ruta inicial de mi 
   res.send('Hola alumnos de ipc1 aaaa');
 });
 
-app.use('/usuarios',rutasUsuarios);
+app.use('/usuarios', rutasUsuarios);
 
 app.listen(app.get('port'), () => {                      // Inicializando el servidor, aqui estoy levantanado el servidor
   console.log(`Server on port ${app.get('port')}`);
