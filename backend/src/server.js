@@ -12,12 +12,12 @@ const rutasUsuarios = require('./rutas/usuarios');
 app.set('port', process.env.PORT || 4000);                // Configurando el puerto que vamos a utilizar   
 
 app.get('/', (req, res) => {                              // Ruta inicial de mi servidor
-  res.send('Hola alumnos de ipc1 aaaa');
+  res.send('Servidor funcionando y listo para recibir peticiones en puerto 4000');
 });
 
 app.use('/usuarios', rutasUsuarios);
 
-app.listen(app.get('port'), () => {                      // Inicializando el servidor, aqui estoy levantanado el servidor
+app.listen(app.get('port'), () => {                       // Inicializando el servidor, aqui estoy levantanado el servidor
   console.log(`Server on port ${app.get('port')}`);
 });
 
