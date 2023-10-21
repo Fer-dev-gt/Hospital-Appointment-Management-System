@@ -18,4 +18,4 @@ router.put('/:id', controlador.actualizarUsuario);        // :id es un parametro
 router.delete('/:id', controlador.eliminarUsuario);       // :id es un parametro que se envia por la url el cual indica el id del usuario que se va a eliminar
 
 
-module.exports = router;                          // Exportando mi servidor para poder utilizarlo en mis pruebas unitarias
+module.exports = router;                                  // Exportando mi servidor para poder utilizarlo en mis pruebas unitarias

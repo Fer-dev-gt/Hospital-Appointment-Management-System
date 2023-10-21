@@ -1,6 +1,7 @@
 import React from "react";
 import usuarioServicio from "../../services/usuarioServicio";
 
+
 function UsuarioComponente() {
   const [usuarios, setUsuarios] = React.useState([]);
   const [nombre, setNombre] = React.useState("");
@@ -10,10 +11,12 @@ function UsuarioComponente() {
     getUsuarios();
   }, [])
 
+
   const eliminarUsuario = async (id) => {
     await usuarioServicio.eliminarUsuario(id);
     getUsuarios();
   }
+
 
   const getUsuarios = async () => {
     const usuarios = await usuarioServicio.obtenerUsuarios();
@@ -21,11 +24,13 @@ function UsuarioComponente() {
     console.log(usuarios);
   };
 
+
   const agregarUsuario = async () => {
     const usuario = { nombre, id };
     await usuarioServicio.crearUsuario(usuario);
     getUsuarios();
   }
+
 
   const editarUsuario = async (id) => {
     const usuario = { nombre, id };
@@ -34,10 +39,12 @@ function UsuarioComponente() {
     getUsuarios();
   }
 
+
   const handleNombreChange = (event) => {
     setNombre(event.target.value);
   };
 
+  
   const handleIdChange = (event) => {
     setId(event.target.value);
 };
