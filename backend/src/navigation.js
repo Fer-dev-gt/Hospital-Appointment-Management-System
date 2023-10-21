@@ -1,7 +1,7 @@
 // En este archivo se maneja la navegación de la aplicación, se cambia el "hash" de la URL y se ejecuta una función dependiendo del "hash" que se encuentre en la URL
 let infiniteScroll;                                                                                // Esta función guardará una función para paginación con "Infinite Scroll" haciendo la solicitud a la API con su respectiva URL
 
-
+irRegistrarPacienteBtn.addEventListener('click', () => location.hash = '#register');
 registrarPacienteBtn.addEventListener('click', () => location.hash = '#modificarPerfil');
 modificarPacienteBtn.addEventListener('click', () => location.hash = '#paciente/cita');
 hacerCitaBtn.addEventListener('click', () => location.hash = '#paciente/comprar');

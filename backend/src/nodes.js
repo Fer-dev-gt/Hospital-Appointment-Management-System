@@ -13,6 +13,7 @@ const searchForm = $('#searchForm');
 
 // Elements
 const loginBtn = $('#loginBtn');
+const irRegistrarPacienteBtn = $('#irRegistrarUsarioPageBtn');
 const registrarPacienteBtn = $('#registrarUsuarioBtn');
 const modificarPacienteBtn = $('#ModificarPacienteBtn');
 const hacerCitaBtn = $('#hacerCitaBtn');

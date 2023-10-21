@@ -1,7 +1,7 @@
 const fs = require('fs');                                                     // Importando el modulo de nodejs para trabajar con archivos binarios
 const controlador = {};                                                       // Creando mi objeto controlador que me servira para exportar mis funciones
 
-controlador.crearUsuario = (req, res) => {                                    // Creando mi funcion para crear usuarios
+controlador.crearUsuario = (req, res) => {                                  // Creando mi funcion para crear usuarios
   const data = req.body;                                                      // Recuperando la data que viene del cliente, recuperamos la data que viene en el body de la peticion
 
   if (fs.existsSync('usuarios.bin')) {                                        // Validar si ya existe el archivo binario llamadao usuarios.bin
