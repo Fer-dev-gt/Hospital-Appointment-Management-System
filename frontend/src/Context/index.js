@@ -5,13 +5,49 @@ const HospitalContext = React.createContext();
 
 function HopitalProvider({ children }) {
   const [usuarios, setUsuarios] = React.useState([]);
+
+  const [usuarioLogIn, setUsuarioLogIn] = React.useState(false);                                                // Estado para saber si el usuario esta logeado o no
+  const [registrandoNuevoUsario, setregistrandoNuevoUsario] = React.useState(false);                            // Estado para saber si el usuario quiere ir a la pagina de registrar usuario
+
   const [nombre, setNombre] = React.useState("");
+  const [passwordLogin, setPasswordLogin] = React.useState("");
   const [id, setId] = React.useState("");
 
-  
+
   React.useEffect(() => {
     getUsuarios();
   }, [])
+  
+
+  const verificarLogin = () => {
+    const usuario = { nombre, passwordLogin };
+    console.log('verificando login', usuario);
+
+    const foundUsuario = usuarios.find((user) => 
+      user.nombre === usuario.nombre && user.password === usuario.passwordLogin
+    );
+
+    if (foundUsuario) {
+      console.log('Usuario encontrado:', foundUsuario);
+      setUsuarioLogIn(true);
+    } else {
+      alert('Usuario no encontrado');
+      setUsuarioLogIn(false);
+    }
+  };
+  
+
+  const irHomePage =  () => {
+    console.log('Regresando al home')
+    setUsuarioLogIn(false);
+    setregistrandoNuevoUsario(false);
+  }
+
+
+  const irRegistrarUsuarioPage =  () => {
+    console.log('ir a registrar usuario')
+    setregistrandoNuevoUsario(true);
+  }
 
 
   const eliminarUsuario = async (id) => {
@@ -52,6 +88,11 @@ function HopitalProvider({ children }) {
   };
 
 
+  const handlePasswordChange = (event) => {
+    setPasswordLogin(event.target.value);
+  };
+
+
   return (
     <HospitalContext.Provider value = {                                                       // Retornamos todos los States y props que se usaran en el proyecto
       {                                                      
@@ -61,12 +102,17 @@ function HopitalProvider({ children }) {
         editarUsuario,
         handleNombreChange,
         handleIdChange,
+        verificarLogin,
+        irRegistrarUsuarioPage,
+        irHomePage,
+        handlePasswordChange,
+        usuarioLogIn,
+        registrandoNuevoUsario,
       }
     }>
       {children}
     </HospitalContext.Provider>
   );
 }
-
 
 export { HospitalContext, HopitalProvider };
