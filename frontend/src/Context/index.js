@@ -35,7 +35,7 @@ function HopitalProvider({ children }) {
       setUsuarioLogIn(false);
     }
   };
-  
+
 
   const irHomePage =  () => {
     console.log('Regresando al home')
@@ -78,19 +78,9 @@ function HopitalProvider({ children }) {
   }
 
 
-  const handleNombreChange = (event) => {
-    setNombre(event.target.value);
-  };
-
-  
-  const handleIdChange = (event) => {
-    setId(event.target.value);
-  };
-
-
-  const handlePasswordChange = (event) => {
-    setPasswordLogin(event.target.value);
-  };
+  const handleNombreChange = (event) => setNombre(event.target.value);
+  const handleIdChange = (event) => setId(event.target.value);
+  const handlePasswordChange = (event) => setPasswordLogin(event.target.value);
 
 
   return (
@@ -106,6 +96,7 @@ function HopitalProvider({ children }) {
         irRegistrarUsuarioPage,
         irHomePage,
         handlePasswordChange,
+        usuarios,
         usuarioLogIn,
         registrandoNuevoUsario,
       }
