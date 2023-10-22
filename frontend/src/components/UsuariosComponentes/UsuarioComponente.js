@@ -1,55 +1,16 @@
 import React from "react";
-import usuarioServicio from "../../services/usuarioServicio";
-
+import { HospitalContext } from "../../Context";
 
 function UsuarioComponente() {
-  const [usuarios, setUsuarios] = React.useState([]);
-  const [nombre, setNombre] = React.useState("");
-  const [id, setId] = React.useState("");
 
-  React.useEffect(() => {
-    getUsuarios();
-  }, [])
-
-
-  const eliminarUsuario = async (id) => {
-    await usuarioServicio.eliminarUsuario(id);
-    getUsuarios();
-  }
-
-
-  const getUsuarios = async () => {
-    const usuarios = await usuarioServicio.obtenerUsuarios();
-    if (usuarios) setUsuarios(usuarios);
-    console.log(usuarios);
-  };
-
-
-  const agregarUsuario = async () => {
-    const usuario = { nombre, id };
-    await usuarioServicio.crearUsuario(usuario);
-    getUsuarios();
-  }
-
-
-  const editarUsuario = async (id) => {
-    const usuario = { nombre, id };
-    console.log('editando usuario', usuario)
-    await usuarioServicio.actualizarUsuario(id, usuario);
-    getUsuarios();
-  }
-
-
-  const handleNombreChange = (event) => {
-    setNombre(event.target.value);
-  };
-
+  const {
+    nombre,
+    id,
+    agregarUsuario,
+    handleNombreChange,
+    handleIdChange
+  } = React.useContext(HospitalContext);
   
-  const handleIdChange = (event) => {
-    setId(event.target.value);
-};
-
-
   return (
     <div>
       <div className="form-container"> 
@@ -77,8 +38,6 @@ function UsuarioComponente() {
     </div>
   );
 }
-
-
 
 
 export { UsuarioComponente };
