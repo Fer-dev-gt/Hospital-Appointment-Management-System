@@ -1,4 +1,5 @@
 import React from "react";
+import { fa, faker } from "@faker-js/faker";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
 
@@ -18,7 +19,6 @@ function RegisterUserScreen() {
   const [password, setPassword] = React.useState("");
   const [phone, setPhone] = React.useState("");
 
-
   const handleNombreNewUser = (event) => setNombre(event.target.value);
   const handleApellidoNewUser = (event) => setApellido(event.target.value);
   const handleUserNameNewUser = (event) => setUserName(event.target.value);
@@ -29,13 +29,12 @@ function RegisterUserScreen() {
 
 
   const registrarNuevoUsuario = async () => {
-    const usuario = { nombre, apellido, userName, fechaNacimiento, gender, password, phone };
-    console.log('registrando nuevo usuario', usuario);
+    const id = faker.number.int({ min: 10, max: 10000 });
+    const userType = 'paciente';
+    const usuario = {id, userType, userName, password, nombre, apellido, fechaNacimiento, gender, phone };
+    console.log('Intentando registrar nuevo usuario', usuario);
 
-    const userNameRepetido = usuarios.find((user) => 
-      user.userName === usuario.userName
-    );
-
+    const userNameRepetido = usuarios.find((user) => user.userName === usuario.userName);
     const passwordCorta = usuario.password.length < 8;
 
     if(userNameRepetido) {
@@ -94,9 +93,9 @@ function RegisterUserScreen() {
           value={gender}
           onChange={handleGenderNewUser}
           >
-          <option value="male">Masculino</option>
-          <option value="female">Femenino</option>
-          <option value="other">Other</option>
+          <option value="Masculino">Masculino</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Otro">Otro</option>
         </select><br /><br />
         <label>Password: </label>
         <input 

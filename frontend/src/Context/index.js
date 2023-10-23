@@ -23,12 +23,32 @@ function HopitalProvider({ children }) {
     const usuario = { nombre, passwordLogin };
     console.log('verificando login', usuario);
 
-    const foundUsuario = usuarios.find((user) => 
-      user.nombre === usuario.nombre && user.password === usuario.passwordLogin
-    );
+    const usuarioEsPaciente = !!usuarios.find((user) => user.userType === 'paciente' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
+    const usuarioEsDoctor = !!usuarios.find((user) => user.userType === 'doctor' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
+    const usuarioEsEnfermera = !!usuarios.find((user) => user.userType === 'enfermera' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
 
-    if (foundUsuario) {
-      console.log('Usuario encontrado:', foundUsuario);
+    if(usuarioEsDoctor) console.log('Usuario es doctor, mostrando su pantalla');
+    if(usuarioEsEnfermera) console.log('Usuario es enfermera, mostrando su pantalla');
+
+    console.log('Usuario es paciente?', usuarioEsPaciente);
+    console.log('Usuario es doctor?', usuarioEsDoctor);
+    console.log('Usuario es enfermera?', usuarioEsEnfermera);
+
+    if(usuarioEsDoctor) {
+      console.log('Usuario encontrado:', usuarioEsDoctor);
+    }
+
+    if(usuarioEsEnfermera) {
+      console.log('Usuario encontrado:', usuarioEsEnfermera);
+    }
+
+    if(!usuarioEsPaciente) {
+      alert('Usuario no es paciente');
+      return;
+    }
+
+    if (usuarioEsPaciente) {
+      console.log('Usuario encontrado:', usuarioEsPaciente);
       setUsuarioLogIn(true);
     } else {
       alert('Usuario no encontrado');
