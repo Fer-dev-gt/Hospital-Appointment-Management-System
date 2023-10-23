@@ -1,15 +1,17 @@
 import React from "react";
 import { HospitalContext } from "../Context";
 import { LoginScreen } from "../components/LoginScreen/LoginScreen";
-import { UsuarioComponente } from "../components/UsuariosComponentes/UsuarioComponente";
+// import { UsuarioComponente } from "../components/UsuariosComponentes/UsuarioComponente";
 import { RegisterUserScreen } from "../components/RegisterUserScreen/RegisterUserScreen";
 import { ModuloPacientes } from "../components/ModuloPacientes/ModuloPacientes";
+import { ModificarUserScreen } from "../components/ModificarUserScreen/ModificarUserScreen";
 
 function AppUI() {
   const {
     usuarioLogIn,
-    registrandoNuevoUsario,
     irHomePage,
+    registrandoNuevoUsario,
+    modificarUserScreen,
   } = React.useContext(HospitalContext);
 
 
@@ -20,7 +22,7 @@ function AppUI() {
       {/* {!!usuarioLogIn && <UsuarioComponente />} */}
       {!!usuarioLogIn && <ModuloPacientes />}
       {!!registrandoNuevoUsario && <RegisterUserScreen />}
-      
+      {!!modificarUserScreen && <ModificarUserScreen />}
     </>
   );
 

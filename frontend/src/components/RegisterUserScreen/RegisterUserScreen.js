@@ -1,5 +1,5 @@
 import React from "react";
-import { fa, faker } from "@faker-js/faker";
+import { faker } from "@faker-js/faker";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
 
