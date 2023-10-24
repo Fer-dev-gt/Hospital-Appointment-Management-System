@@ -7,6 +7,7 @@ const ModuloPacientes = () => {
     irSolictarCitaPage,
     usuarioLoggeado,
     irVerCitasPage,
+    irVerRecetasPage,
   } = React.useContext(HospitalContext);
 
   console.log('usuarioLoggeado', usuarioLoggeado);
@@ -16,7 +17,7 @@ const ModuloPacientes = () => {
       <button onClick={irModificarUsuarioPage}>Modificar Perfil</button>
       <button onClick={irSolictarCitaPage}>Solicitar cita</button>
       <button onClick={irVerCitasPage}>Ver estado de citas creadas</button>
-      <button >Ver Recetas con Factura </button>
+      <button onClick={irVerRecetasPage}>Ver Recetas con Factura </button>
       <button >Comprar medicina</button>
     </div>
   );

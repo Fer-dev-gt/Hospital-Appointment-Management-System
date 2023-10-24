@@ -13,6 +13,7 @@ function HopitalProvider({ children }) {
   const [modificarUserScreen, setModificarUserScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de modificar usuario
   const [solicitarCitaScreen, setSolicitarCitaScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de solicitar cita
   const [verCitas, setVerCitas] = React.useState(false);                                                        // Estado para saber si el usuario quiere ir a la pagina de ver citas
+  const [verRecetas, setVerRecetas] = React.useState(false);                                                    // Estado para saber si el usuario quiere ir a la pagina de ver recetas
 
   const [nombre, setNombre] = React.useState("");
   const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -71,6 +72,7 @@ function HopitalProvider({ children }) {
     setModificarUserScreen(false);
     setSolicitarCitaScreen(false);
     setVerCitas(false);
+    setVerRecetas(false);
   }
 
   const irRegistrarUsuarioPage =  () => {
@@ -83,6 +85,7 @@ function HopitalProvider({ children }) {
     setModificarUserScreen(true);
     setSolicitarCitaScreen(false);
     setVerCitas(false);
+    setVerRecetas(false);
   }
 
   const irSolictarCitaPage =  () => {
@@ -90,6 +93,7 @@ function HopitalProvider({ children }) {
     setSolicitarCitaScreen(true);
     setVerCitas(false);
     setModificarUserScreen(false);
+    setVerRecetas(false);
   }
 
   const irVerCitasPage =  () => {
@@ -97,6 +101,15 @@ function HopitalProvider({ children }) {
     setModificarUserScreen(false);
     setSolicitarCitaScreen(false);
     setVerCitas(true);
+    setVerRecetas(false);
+  }
+
+  const irVerRecetasPage =  () => {
+    console.log('ir a ver recetas')
+    setModificarUserScreen(false);
+    setSolicitarCitaScreen(false);
+    setVerCitas(false);
+    setVerRecetas(true);
   }
 
 
@@ -171,6 +184,8 @@ function HopitalProvider({ children }) {
         irModificarUsuarioPage,
         irSolictarCitaPage,
         irVerCitasPage,
+        irVerRecetasPage,
+        setVerRecetas,
         handlePasswordChange,
         getCitas,
         agregarCita,
@@ -182,6 +197,7 @@ function HopitalProvider({ children }) {
         usuarioLoggeado,
         verCitas,
         citas,
+        verRecetas,
       }
     }>
       {children}

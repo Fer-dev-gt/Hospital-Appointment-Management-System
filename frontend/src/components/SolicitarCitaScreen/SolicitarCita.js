@@ -33,6 +33,11 @@ function SolicitarCita() {
     const datosCita = {idCita, idPaciente, fechaCita, horaCita, motivoCita};
     datosCita.status = 'pendiente';
     datosCita.doctor = 'no asignado';
+    datosCita.receta = {};
+    datosCita.receta.fecha = fechaCita;
+    datosCita.receta.padecimiento = '';
+    datosCita.receta.descripcion = '';
+    datosCita.receta.precioConsulta = 0;
 
     const citaRepetida = citas.some(cita => cita.fechaCita === fechaCita && cita.horaCita === horaCita && cita.idPaciente === idPaciente);
 
