@@ -6,6 +6,7 @@ import { RegisterUserScreen } from "../components/RegisterUserScreen/RegisterUse
 import { ModuloPacientes } from "../components/ModuloPacientes/ModuloPacientes";
 import { ModificarUserScreen } from "../components/ModificarUserScreen/ModificarUserScreen";
 import { SolicitarCita } from "../components/SolicitarCitaScreen/SolicitarCita";
+import { VerCitas } from "../components/VerCitasScreen/VerCitas";
 
 function AppUI() {
   const {
@@ -14,6 +15,7 @@ function AppUI() {
     registrandoNuevoUsario,
     modificarUserScreen,
     solicitarCitaScreen,
+    verCitas,
   } = React.useContext(HospitalContext);
 
 
@@ -26,6 +28,7 @@ function AppUI() {
       {!!registrandoNuevoUsario && <RegisterUserScreen />}
       {!!modificarUserScreen && <ModificarUserScreen />}
       {!!solicitarCitaScreen && <SolicitarCita />}
+      {!!verCitas && <VerCitas />}
     </>
   );
 

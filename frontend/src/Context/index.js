@@ -12,6 +12,7 @@ function HopitalProvider({ children }) {
   const [registrandoNuevoUsario, setregistrandoNuevoUsario] = React.useState(false);                            // Estado para saber si el usuario quiere ir a la pagina de registrar usuario
   const [modificarUserScreen, setModificarUserScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de modificar usuario
   const [solicitarCitaScreen, setSolicitarCitaScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de solicitar cita
+  const [verCitas, setVerCitas] = React.useState(false);                                                        // Estado para saber si el usuario quiere ir a la pagina de ver citas
 
   const [nombre, setNombre] = React.useState("");
   const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -69,6 +70,7 @@ function HopitalProvider({ children }) {
     setregistrandoNuevoUsario(false);
     setModificarUserScreen(false);
     setSolicitarCitaScreen(false);
+    setVerCitas(false);
   }
 
   const irRegistrarUsuarioPage =  () => {
@@ -80,12 +82,21 @@ function HopitalProvider({ children }) {
     console.log('ir a modificar usuario')
     setModificarUserScreen(true);
     setSolicitarCitaScreen(false);
+    setVerCitas(false);
   }
 
   const irSolictarCitaPage =  () => {
     console.log('ir a solicitar cita')
-    setModificarUserScreen(false);
     setSolicitarCitaScreen(true);
+    setVerCitas(false);
+    setModificarUserScreen(false);
+  }
+
+  const irVerCitasPage =  () => {
+    console.log('ir a ver citas')
+    setModificarUserScreen(false);
+    setSolicitarCitaScreen(false);
+    setVerCitas(true);
   }
 
 
@@ -159,14 +170,18 @@ function HopitalProvider({ children }) {
         irHomePage,
         irModificarUsuarioPage,
         irSolictarCitaPage,
+        irVerCitasPage,
         handlePasswordChange,
         getCitas,
+        agregarCita,
         usuarios,
         usuarioLogIn,
         modificarUserScreen,
         solicitarCitaScreen,
         registrandoNuevoUsario,
         usuarioLoggeado,
+        verCitas,
+        citas,
       }
     }>
       {children}

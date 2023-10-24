@@ -15,7 +15,7 @@ function LoginScreen() {
     <div>
       <section id="login-section" className="login-container">
         <h1>UHospital - Inicio de Sesión</h1>
-          <label>Name:</label>
+          <label>Name: </label>
           <input 
             type="text"
             id="userNameLogin"
@@ -23,7 +23,7 @@ function LoginScreen() {
             onChange={handleNombreChange}
             /><br/><br/>
           
-          <label>Password:</label>
+          <label>Password: </label>
           <input
             type="password"
             id="passwordLogin"
