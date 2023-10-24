@@ -8,6 +8,7 @@ import { ModificarUserScreen } from "../components/ModificarUserScreen/Modificar
 import { SolicitarCita } from "../components/SolicitarCitaScreen/SolicitarCita";
 import { VerCitas } from "../components/VerCitasScreen/VerCitas";
 import { VerRecetas } from "../components/VerRecetas/VerRecetas";
+import { ComprarMedicina } from "../components/ComprarMedicina/ComprarMedicina";
 
 function AppUI() {
   const {
@@ -18,6 +19,7 @@ function AppUI() {
     solicitarCitaScreen,
     verCitas,
     verRecetas,
+    comprarMedicina,
   } = React.useContext(HospitalContext);
 
 
@@ -32,6 +34,7 @@ function AppUI() {
       {!!solicitarCitaScreen && <SolicitarCita />}
       {!!verCitas && <VerCitas />}
       {!!verRecetas && <VerRecetas />}
+      {!!comprarMedicina && <ComprarMedicina />}
     </>
   );
 

@@ -155,4 +155,37 @@ controlador.actualizarCita = (req, res) => {
   return res.send('No existe el archivo');                                          
 }
 
+
+
+// Controladores para inventario de medicinas y operaciones CRUD
+
+controlador.leerMedicinas = (req, res) => {                                    
+  const buffer = fs.readFileSync('medicinas.bin');                             
+  const data = JSON.parse(buffer.toString());                                 
+  res.send(data);
+}
+
+controlador.actualizarMedicina = (req, res) => {                                    
+  const data = req.body;                                                           
+  const usuarioId = req.params.id;
+  
+  if (fs.existsSync('medicinas.bin')) {                                              
+    const buffer = fs.readFileSync('medicinas.bin');                                 
+    const dataAnterior = JSON.parse(buffer.toString());
+
+    const dataNueva = dataAnterior.map((usuario) => {                               
+      if (usuario.id == usuarioId) {                          
+        return data;
+      }
+      return usuario;
+    });
+
+    const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));                     
+    fs.writeFileSync('medicinas.bin', bufferNuevo);
+    return res.send('Actualizando medicinas desde el controlador si existe');
+  }
+
+  return res.send('No existe el archivo');                                          
+}
+
 module.exports = controlador;                                                       // Exportando mi objeto controlador para poder usarlo en otros archivos

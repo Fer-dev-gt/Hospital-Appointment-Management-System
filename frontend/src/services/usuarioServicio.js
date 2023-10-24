@@ -44,4 +44,16 @@ usuarioServicio.eliminarCita = async (id) => {
   return data;
 }
 
+
+
+usuarioServicio.obtenerMedicinas = async () => {
+  const data = await http.get("http://localhost:4000/usuarios/medicinas");
+  return data;
+}
+
+usuarioServicio.actualizarMedicina = async (id, medicina) => {
+  const data = await http.put(`http://localhost:4000/usuarios/medicinas/${id}`, medicina);
+  return data;
+}
+
 export default usuarioServicio ;

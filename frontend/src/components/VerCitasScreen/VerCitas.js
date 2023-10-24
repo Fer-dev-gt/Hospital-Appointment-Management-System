@@ -12,6 +12,7 @@ function VerCitas() {
     console.log('Lista de citas en Citas.bin');
     getCitas();
   }, [])
+  
 
   const citasPaciente = citas.filter(cita => cita.idPaciente === usuarioLoggeado.id);
 

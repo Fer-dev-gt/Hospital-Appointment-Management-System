@@ -6,6 +6,7 @@ const HospitalContext = React.createContext();
 function HopitalProvider({ children }) {
   const [usuarios, setUsuarios] = React.useState([]);
   const [citas, setCitas] = React.useState([]);
+  const [medicinas, setMedicinas] = React.useState([]);
   const [usuarioLoggeado, setUsuarioLoggeado] = React.useState({});
 
   const [usuarioLogIn, setUsuarioLogIn] = React.useState(false);                                                // Estado para saber si el usuario esta logeado o no
@@ -14,6 +15,8 @@ function HopitalProvider({ children }) {
   const [solicitarCitaScreen, setSolicitarCitaScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de solicitar cita
   const [verCitas, setVerCitas] = React.useState(false);                                                        // Estado para saber si el usuario quiere ir a la pagina de ver citas
   const [verRecetas, setVerRecetas] = React.useState(false);                                                    // Estado para saber si el usuario quiere ir a la pagina de ver recetas
+  const [comprarMedicina, setComprarMedicina] = React.useState(false);                                          // Estado para saber si el usuario quiere ir a la pagina de comprar medicina
+  const [hacerPedido, setHacerPedido] = React.useState(false);                                                  // Estado para saber si el usuario quiere ir a la pagina de hacer pedido
 
   const [nombre, setNombre] = React.useState("");
   const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -73,6 +76,8 @@ function HopitalProvider({ children }) {
     setSolicitarCitaScreen(false);
     setVerCitas(false);
     setVerRecetas(false);
+    setComprarMedicina(false);
+    setHacerPedido(false);
   }
 
   const irRegistrarUsuarioPage =  () => {
@@ -85,7 +90,9 @@ function HopitalProvider({ children }) {
     setModificarUserScreen(true);
     setSolicitarCitaScreen(false);
     setVerCitas(false);
+    setComprarMedicina(false);
     setVerRecetas(false);
+    setHacerPedido(false);
   }
 
   const irSolictarCitaPage =  () => {
@@ -93,15 +100,19 @@ function HopitalProvider({ children }) {
     setSolicitarCitaScreen(true);
     setVerCitas(false);
     setModificarUserScreen(false);
+    setComprarMedicina(false);
     setVerRecetas(false);
+    setHacerPedido(false);
   }
 
   const irVerCitasPage =  () => {
     console.log('ir a ver citas')
     setModificarUserScreen(false);
     setSolicitarCitaScreen(false);
+    setComprarMedicina(false);
     setVerCitas(true);
     setVerRecetas(false);
+    setHacerPedido(false);
   }
 
   const irVerRecetasPage =  () => {
@@ -109,7 +120,29 @@ function HopitalProvider({ children }) {
     setModificarUserScreen(false);
     setSolicitarCitaScreen(false);
     setVerCitas(false);
+    setComprarMedicina(false);
     setVerRecetas(true);
+    setHacerPedido(false);
+  }
+
+  const irCompraMedicinaPage =  () => {
+    console.log('ir a comprar medicina')
+    setModificarUserScreen(false);
+    setSolicitarCitaScreen(false);
+    setVerCitas(false);
+    setVerRecetas(false);
+    setComprarMedicina(true);
+    setHacerPedido(false);
+  }
+
+  const irHacerPedidoPage =  () => {
+    console.log('ir a hacer pedido')
+    setModificarUserScreen(false);
+    setSolicitarCitaScreen(false);
+    setVerCitas(false);
+    setVerRecetas(false);
+    // setComprarMedicina(false);
+    setHacerPedido(true);
   }
 
 
@@ -165,6 +198,21 @@ function HopitalProvider({ children }) {
   }
 
 
+  // Funciones CRUD de medicinas
+  const getMedicinas = async () => {
+    const medicinas = await usuarioServicio.obtenerMedicinas();
+    if (medicinas) setMedicinas(medicinas);
+    console.log(medicinas);
+  }
+
+  const editarMedicina = async (id) => {
+    const medicina = { nombre, id };
+    console.log('editando medicina', medicina)
+    await usuarioServicio.actualizarMedicina(id, medicina);
+    getMedicinas();
+  }
+
+
   const handleNombreChange = (event) => setNombre(event.target.value);
   const handleIdChange = (event) => setId(event.target.value);
   const handlePasswordChange = (event) => setPasswordLogin(event.target.value);
@@ -185,9 +233,12 @@ function HopitalProvider({ children }) {
         irSolictarCitaPage,
         irVerCitasPage,
         irVerRecetasPage,
+        irCompraMedicinaPage,
+        irHacerPedidoPage,
         setVerRecetas,
         handlePasswordChange,
         getCitas,
+        getMedicinas,
         agregarCita,
         usuarios,
         usuarioLogIn,
@@ -196,8 +247,11 @@ function HopitalProvider({ children }) {
         registrandoNuevoUsario,
         usuarioLoggeado,
         verCitas,
+        comprarMedicina,
+        hacerPedido,
         citas,
         verRecetas,
+        medicinas,
       }
     }>
       {children}

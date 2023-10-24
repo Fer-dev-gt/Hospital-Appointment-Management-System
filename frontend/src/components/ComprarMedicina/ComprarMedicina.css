@@ -1,0 +1,35 @@
+.medicamentos-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.medicamento {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.medicamento h2 {
+  margin-top: 0;
+}
+
+.medicamento p {
+  margin-bottom: 0;
+}
+
+.precio {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.precio:hover {
+  background-color: #3e8e41;
+}
