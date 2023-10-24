@@ -1,7 +1,6 @@
 import React from 'react';
 import { HospitalContext } from "../../Context";
 
-
 function LoginScreen() {
   
   const {
@@ -11,8 +10,6 @@ function LoginScreen() {
     handlePasswordChange,
     nombre
   } = React.useContext(HospitalContext);
-
-
 
   return(
     <div>
@@ -39,6 +36,5 @@ function LoginScreen() {
     </div>
   );
 }
-
 
 export { LoginScreen };

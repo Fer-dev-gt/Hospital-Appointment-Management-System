@@ -5,11 +5,13 @@ const HospitalContext = React.createContext();
 
 function HopitalProvider({ children }) {
   const [usuarios, setUsuarios] = React.useState([]);
+  const [citas, setCitas] = React.useState([]);
   const [usuarioLoggeado, setUsuarioLoggeado] = React.useState({});
 
   const [usuarioLogIn, setUsuarioLogIn] = React.useState(false);                                                // Estado para saber si el usuario esta logeado o no
   const [registrandoNuevoUsario, setregistrandoNuevoUsario] = React.useState(false);                            // Estado para saber si el usuario quiere ir a la pagina de registrar usuario
   const [modificarUserScreen, setModificarUserScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de modificar usuario
+  const [solicitarCitaScreen, setSolicitarCitaScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de solicitar cita
 
   const [nombre, setNombre] = React.useState("");
   const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -28,7 +30,7 @@ function HopitalProvider({ children }) {
     const UsuarioLoggeado = usuarios.find((user) => user.userType === 'paciente' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
     setUsuarioLoggeado(UsuarioLoggeado)
     const usuarioEsPaciente = !!UsuarioLoggeado
-    
+
     const usuarioEsDoctor = !!usuarios.find((user) => user.userType === 'doctor' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
     const usuarioEsEnfermera = !!usuarios.find((user) => user.userType === 'enfermera' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
 
@@ -66,6 +68,7 @@ function HopitalProvider({ children }) {
     setUsuarioLogIn(false);
     setregistrandoNuevoUsario(false);
     setModificarUserScreen(false);
+    setSolicitarCitaScreen(false);
   }
 
   const irRegistrarUsuarioPage =  () => {
@@ -76,9 +79,14 @@ function HopitalProvider({ children }) {
   const irModificarUsuarioPage =  () => {
     console.log('ir a modificar usuario')
     setModificarUserScreen(true);
+    setSolicitarCitaScreen(false);
   }
 
-  
+  const irSolictarCitaPage =  () => {
+    console.log('ir a solicitar cita')
+    setModificarUserScreen(false);
+    setSolicitarCitaScreen(true);
+  }
 
 
 
@@ -107,11 +115,35 @@ function HopitalProvider({ children }) {
     getUsuarios();
   }
 
+  // Funciones CRUD de citas
+  const eliminarCita = async (id) => {
+    await usuarioServicio.eliminarCita(id);
+    getCitas();
+  }
+
+  const getCitas = async () => {
+    const citas = await usuarioServicio.obtenerCitas();
+    if (citas) setCitas(citas);
+    console.log(citas);
+  }
+
+  const agregarCita = async () => {
+    const cita = { nombre, id };
+    await usuarioServicio.crearCita(cita);
+    getCitas();
+  }
+
+  const editarCita = async (id) => {
+    const cita = { nombre, id };
+    console.log('editando cita', cita)
+    await usuarioServicio.actualizarCita(id, cita);
+    getCitas();
+  }
+
 
   const handleNombreChange = (event) => setNombre(event.target.value);
   const handleIdChange = (event) => setId(event.target.value);
   const handlePasswordChange = (event) => setPasswordLogin(event.target.value);
-
 
   return (
     <HospitalContext.Provider value = {                                                       // Retornamos todos los States y props que se usaran en el proyecto
@@ -126,10 +158,13 @@ function HopitalProvider({ children }) {
         irRegistrarUsuarioPage,
         irHomePage,
         irModificarUsuarioPage,
+        irSolictarCitaPage,
         handlePasswordChange,
+        getCitas,
         usuarios,
         usuarioLogIn,
         modificarUserScreen,
+        solicitarCitaScreen,
         registrandoNuevoUsario,
         usuarioLoggeado,
       }

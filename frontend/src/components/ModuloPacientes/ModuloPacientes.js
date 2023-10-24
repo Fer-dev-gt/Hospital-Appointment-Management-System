@@ -4,6 +4,7 @@ import { HospitalContext } from "../../Context";
 const ModuloPacientes = () => {
   const {
     irModificarUsuarioPage,
+    irSolictarCitaPage,
     usuarioLoggeado,
   } = React.useContext(HospitalContext);
 
@@ -12,7 +13,7 @@ const ModuloPacientes = () => {
   return (
     <div>
       <button onClick={irModificarUsuarioPage}>Modificar Perfil</button>
-      <button >Solicitar cita</button>
+      <button onClick={irSolictarCitaPage}>Solicitar cita</button>
       <button >Ver Recetas con Factura </button>
       <button >Comprar medicina</button>
     </div>

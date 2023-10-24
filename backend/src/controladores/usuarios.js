@@ -1,7 +1,7 @@
 const fs = require('fs');                                                     // Importando el modulo de nodejs para trabajar con archivos binarios
 const controlador = {};                                                       // Creando mi objeto controlador que me servira para exportar mis funciones
 
-controlador.crearUsuario = (req, res) => {                                  // Creando mi funcion para crear usuarios
+controlador.crearUsuario = (req, res) => {                                    // Creando mi funcion para crear usuarios
   const data = req.body;                                                      // Recuperando la data que viene del cliente, recuperamos la data que viene en el body de la peticion
 
   if (fs.existsSync('usuarios.bin')) {                                        // Validar si ya existe el archivo binario llamadao usuarios.bin
@@ -52,8 +52,8 @@ controlador.eliminarUsuario = (req, res) => {
 
 
 
-controlador.actualizarUsuario = (req, res) => {                                    // Creando mi funcion para actualizar usuarios
-  const data = req.body;                                                           // Recuperando la data que viene del cliente, recuperamos la data que viene en el body de la peticion
+controlador.actualizarUsuario = (req, res) => {                                     // Creando mi funcion para actualizar usuarios
+  const data = req.body;                                                            // Recuperando la data que viene del cliente, recuperamos la data que viene en el body de la peticion
   const usuarioId = req.params.id;
   
   if (fs.existsSync('usuarios.bin')) {                                              // Validar si ya existe el archivo binario llamadao usuarios.bin
@@ -75,5 +75,84 @@ controlador.actualizarUsuario = (req, res) => {                                 
   return res.send('No existe el archivo');                                          // Esto se envia si y solo si no existe el archivo binario
 }
 
+
+
+
+
+//  Controlador para citas y operaciones CRUD
+
+controlador.crearCita = (req, res) => {                                    
+  const data = req.body;                                                      
+
+  if (fs.existsSync('citas.bin')) {                                        
+    const buffer = fs.readFileSync('citas.bin');                           
+    const dataAnterior = JSON.parse(buffer.toString());
+
+    dataAnterior.push(data);                                                  
+    const bufferNuevo = Buffer.from(JSON.stringify(dataAnterior));            
+    
+    fs.writeFileSync('citas.bin', bufferNuevo);
+    return res.send('Creando citas desde el controlador si existe');
+  }
+
+  const arreglo = [];                                                         
+  arreglo.push(data);                                                         
+
+  const buffer = Buffer.from(JSON.stringify(arreglo));                        
+  fs.writeFileSync('citas.bin', buffer);
+
+  return res.send('Creando citas desde el controlador');                   
+}
+
+
+
+controlador.leerCitas = (req, res) => {                                    
+  const buffer = fs.readFileSync('citas.bin');                             
+  const data = JSON.parse(buffer.toString());                                 
+  res.send(data);
+}
+
+
+
+controlador.eliminarCita = (req, res) => {
+  const usuarioId = req.params.id;                                                    
+  
+  if (fs.existsSync('citas.bin')) {                                                
+    const buffer = fs.readFileSync('citas.bin');                                   
+    const dataAnterior = JSON.parse(buffer.toString());                               
+    const dataNueva = dataAnterior.filter((usuario) => usuario.id != usuarioId);      
+
+    const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));                       
+    fs.writeFileSync('citas.bin', bufferNuevo);
+    return res.send('Eliminando citas desde el controlador si existe');
+  }
+  
+  return res.send('No existe el archivo');                                            
+}
+
+
+
+controlador.actualizarCita = (req, res) => {                                    
+  const data = req.body;                                                           
+  const usuarioId = req.params.id;
+  
+  if (fs.existsSync('citas.bin')) {                                              
+    const buffer = fs.readFileSync('citas.bin');                                 
+    const dataAnterior = JSON.parse(buffer.toString());
+
+    const dataNueva = dataAnterior.map((usuario) => {                               
+      if (usuario.id == usuarioId) {                          
+        return data;
+      }
+      return usuario;
+    });
+
+    const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));                     
+    fs.writeFileSync('citas.bin', bufferNuevo);
+    return res.send('Actualizando citas desde el controlador si existe');
+  }
+
+  return res.send('No existe el archivo');                                          
+}
 
 module.exports = controlador;                                                       // Exportando mi objeto controlador para poder usarlo en otros archivos
