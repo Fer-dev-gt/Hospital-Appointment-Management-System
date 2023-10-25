@@ -9,6 +9,8 @@ import { SolicitarCita } from "../components/SolicitarCitaScreen/SolicitarCita";
 import { VerCitas } from "../components/VerCitasScreen/VerCitas";
 import { VerRecetas } from "../components/VerRecetas/VerRecetas";
 import { ComprarMedicina } from "../components/ComprarMedicina/ComprarMedicina";
+import { CitasSolicitadas } from "../components/ModuloEnfermera/CitasSolicitadas";
+import { CrearRecetas } from "../components/ModuloDoctor/CrearRecetas";
 
 function AppUI() {
   const {
@@ -20,6 +22,9 @@ function AppUI() {
     verCitas,
     verRecetas,
     comprarMedicina,
+    usuarioPacienteLogIn,
+    usuarioEnfermeraLogIn,
+    usuarioDoctorLogIn,
   } = React.useContext(HospitalContext);
 
 
@@ -27,14 +32,15 @@ function AppUI() {
     <>
       <h1 onClick={irHomePage} id="home">UHospital</h1>
       {(!usuarioLogIn && !registrandoNuevoUsario) && <LoginScreen />}
-      {/* {!!usuarioLogIn && <UsuarioComponente />} */}
-      {!!usuarioLogIn && <ModuloPacientes />}
+      {!!usuarioPacienteLogIn && <ModuloPacientes />}
       {!!registrandoNuevoUsario && <RegisterUserScreen />}
       {!!modificarUserScreen && <ModificarUserScreen />}
       {!!solicitarCitaScreen && <SolicitarCita />}
       {!!verCitas && <VerCitas />}
       {!!verRecetas && <VerRecetas />}
       {!!comprarMedicina && <ComprarMedicina />}
+      {!!usuarioEnfermeraLogIn && <CitasSolicitadas />}
+      {!!usuarioDoctorLogIn && <CrearRecetas />}
     </>
   );
 

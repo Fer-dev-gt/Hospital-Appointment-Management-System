@@ -71,7 +71,7 @@ function RegisterUserScreen() {
         <label>Apellido: </label>
         <input 
           type="text"
-          id="nombre"
+          id="apellido"
           value={apellido}
           onChange={handleApellidoNewUser}  /><br /><br />
         <label>UserName: </label>

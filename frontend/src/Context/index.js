@@ -10,6 +10,9 @@ function HopitalProvider({ children }) {
   const [usuarioLoggeado, setUsuarioLoggeado] = React.useState({});
 
   const [usuarioLogIn, setUsuarioLogIn] = React.useState(false);                                                // Estado para saber si el usuario esta logeado o no
+  const [usuarioPacienteLogIn, setUsuarioPacienteLogIn] = React.useState(false);                                // Estado para saber si el usuario es paciente o no
+  const [usuarioDoctorLogIn, setUsuarioDoctorLogIn] = React.useState(false);                                    // Estado para saber si el usuario es doctor o no
+  const [usuarioEnfermeraLogIn, setUsuarioEnfermeraLogIn] = React.useState(false);                              // Estado para saber si el usuario es enfermera o no
   const [registrandoNuevoUsario, setregistrandoNuevoUsario] = React.useState(false);                            // Estado para saber si el usuario quiere ir a la pagina de registrar usuario
   const [modificarUserScreen, setModificarUserScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de modificar usuario
   const [solicitarCitaScreen, setSolicitarCitaScreen] = React.useState(false);                                  // Estado para saber si el usuario quiere ir a la pagina de solicitar cita
@@ -48,10 +51,18 @@ function HopitalProvider({ children }) {
 
     if(usuarioEsDoctor) {
       console.log('Usuario encontrado:', usuarioEsDoctor);
+      setUsuarioDoctorLogIn(true);
+      setUsuarioEnfermeraLogIn(false);
+      setUsuarioLogIn(true);
+      return;
     }
 
     if(usuarioEsEnfermera) {
       console.log('Usuario encontrado:', usuarioEsEnfermera);
+      setUsuarioEnfermeraLogIn(true);
+      setUsuarioDoctorLogIn(false);
+      setUsuarioLogIn(true);
+      return;
     }
 
     if(!usuarioEsPaciente) {
@@ -60,16 +71,19 @@ function HopitalProvider({ children }) {
     }
 
     if (usuarioEsPaciente) {
+      setUsuarioPacienteLogIn(true);
       setUsuarioLogIn(true);
     } else {
       alert('Usuario no encontrado');
       setUsuarioLogIn(false);
+      setUsuarioPacienteLogIn(false)
     }
   };
 
   // Navegacion de paginas
   const irHomePage =  () => {
     console.log('Regresando al home')
+    setUsuarioPacienteLogIn(false);
     setUsuarioLogIn(false);
     setregistrandoNuevoUsario(false);
     setModificarUserScreen(false);
@@ -252,6 +266,9 @@ function HopitalProvider({ children }) {
         citas,
         verRecetas,
         medicinas,
+        usuarioDoctorLogIn,
+        usuarioEnfermeraLogIn,
+        usuarioPacienteLogIn,
       }
     }>
       {children}
