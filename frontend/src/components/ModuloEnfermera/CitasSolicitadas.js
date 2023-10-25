@@ -1,5 +1,6 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
+import usuarioServicio from "../../services/usuarioServicio";
 
 
 function CitasSolicitadas() {
@@ -25,8 +26,12 @@ function CitasSolicitadas() {
   }, [selectedDoctor]);
   
 
-  const subirCitaAlArchivo = async () => {
-
+  const subirCitaAlArchivo = async (idCita) => {
+    const citaToUpdate = citas.find(cita => cita.idCita === idCita);
+    console.log('Guardando cita actualizada:', citaToUpdate);
+    
+    await usuarioServicio.actualizarCita(idCita, citaToUpdate);
+    console.log('Datos de citas actualizadas', citas);
   }
 
 
@@ -39,6 +44,7 @@ function CitasSolicitadas() {
       console.log('Datos de citas actualizadas', citas);
       setMostrarDoctores(!mostrarDoctores);
       aceptarCita(cita)
+      subirCitaAlArchivo(cita.idCita);
       return;
     }
 

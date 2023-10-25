@@ -1,3 +1,4 @@
+const { log } = require('console');
 const fs = require('fs');                                                     // Importando el modulo de nodejs para trabajar con archivos binarios
 const controlador = {};                                                       // Creando mi objeto controlador que me servira para exportar mis funciones
 
@@ -134,17 +135,17 @@ controlador.eliminarCita = (req, res) => {
 
 controlador.actualizarCita = (req, res) => {                                    
   const data = req.body;                                                           
-  const usuarioId = req.params.id;
+  const citaId = req.params.id;
   
   if (fs.existsSync('citas.bin')) {                                              
     const buffer = fs.readFileSync('citas.bin');                                 
     const dataAnterior = JSON.parse(buffer.toString());
 
-    const dataNueva = dataAnterior.map((usuario) => {                               
-      if (usuario.id == usuarioId) {                          
+    const dataNueva = dataAnterior.map((cita) => {                               
+      if (cita.idCita == citaId) {                          
         return data;
       }
-      return usuario;
+      return cita;
     });
 
     const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));                     

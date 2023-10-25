@@ -24,17 +24,10 @@ function ModificarUserScreen() {
 
 
   const modificarUsuario = async () => {
-    console.log('logeado', usuarioLoggeado);
+    console.log('Datos antes del cambio', usuarioLoggeado);
     
-    usuarioLoggeado.nombre = newNombre;
-    usuarioLoggeado.apellido = newApellido;
-    usuarioLoggeado.userName = newUserName;
-    usuarioLoggeado.password = newPassword;
-    usuarioLoggeado.fechaNacimiento = newFechaNacimiento;
+    const userNameRepetido = usuarios.find((user) => user.userName === newUserName);
     
-    console.log('Intentando modificar usuario con estos datos: ', usuarioLoggeado);
-
-    const userNameRepetido = usuarios.find((user) => user.userName === usuarioLoggeado.userName);
     if(userNameRepetido) {
       alert(`El Username ${newUserName} ya esta registrado, por favor elija otro`);
       return;
@@ -46,10 +39,17 @@ function ModificarUserScreen() {
       return;
     }
 
+    usuarioLoggeado.nombre = newNombre;
+    usuarioLoggeado.apellido = newApellido;
+    usuarioLoggeado.userName = newUserName;
+    usuarioLoggeado.password = newPassword;
+    usuarioLoggeado.fechaNacimiento = newFechaNacimiento;
+    console.log('Intentando modificar usuario con estos datos: ', usuarioLoggeado);
+
     await usuarioServicio.actualizarUsuario(usuarioLoggeado.id, usuarioLoggeado);
     getUsuarios();
 
-    console.log("Nueva lista de usuarios",usuarios);
+    console.log("Nueva lista de usuarios", usuarios);
   }
 
 
