@@ -13,7 +13,7 @@ function CitasSolicitadas() {
 
   const [selectedDoctor, setSelectedDoctor] = React.useState('');
   const [mostrarDoctores, setMostrarDoctores] = React.useState(false);
-  const citasPendientes = citas.filter(cita => (cita.status !== "confirmar" && cita.status !== "rechazado") || cita.doctor == 'no asignado');
+  const citasPendientes = citas.filter(cita => (cita.status !== "confirmar" && cita.status !== "rechazada") || cita.doctor == 'no asignado');
 
   React.useEffect(() => {
     console.log('Lista de citas en Citas.bin');
@@ -35,7 +35,7 @@ function CitasSolicitadas() {
   }
 
 
-  const aceptarCita = (cita, doctor="") => {
+  const aceptarCita = (cita) => {
     if(cita.status === 'confirmar' && selectedDoctor === '') alert('No se ha seleccionado doctor');
     if(cita.status === 'confirmar' && selectedDoctor !== '') {
       console.log('guardando doctor');
@@ -53,6 +53,17 @@ function CitasSolicitadas() {
     if(cita.status !== 'confirmar') {
       cita.status = 'confirmar';
       setMostrarDoctores(!mostrarDoctores);
+    }
+  }
+
+  
+  const recharzarCita = (cita) => {
+    if(cita.status !== 'rechazada') {
+      console.log('rechazando cita');
+      cita.doctor = 'Cita fue rechazada';
+      cita.status = 'rechazada';
+      setMostrarDoctores(!mostrarDoctores);
+      subirCitaAlArchivo(cita.idCita);
     }
   }
 
@@ -101,7 +112,7 @@ function CitasSolicitadas() {
                 <td>{cita.horaCita}</td>
                 <td>{cita.motivoCita}</td>
                 
-                <td><button>Rechazar</button></td>
+                <td><button onClick={()=>{recharzarCita(cita)}} >Rechazar</button></td>
                 <td><button onClick={()=>{aceptarCita(cita)}}>{cita.status!=='confirmar' ? "Aceptar":"Confirmar"}</button> {(cita.status === 'confirmar') && 
                   (<>
                     <select onChange={cambiarDoctor}>
