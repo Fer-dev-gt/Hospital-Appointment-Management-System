@@ -8,6 +8,8 @@ function HopitalProvider({ children }) {
   const [citas, setCitas] = React.useState([]);
   const [medicinas, setMedicinas] = React.useState([]);
   const [usuarioLoggeado, setUsuarioLoggeado] = React.useState({});
+  const [usuarioLoggeadoEnfermera, setUsuarioLoggeadoEnfermera] = React.useState({});                           
+  const [usuarioLoggeadoDoctor, setUsuarioLoggeadoDoctor] = React.useState({});                                 
 
   const [usuarioLogIn, setUsuarioLogIn] = React.useState(false);                                                // Estado para saber si el usuario esta logeado o no
   const [usuarioPacienteLogIn, setUsuarioPacienteLogIn] = React.useState(false);                                // Estado para saber si el usuario es paciente o no
@@ -51,6 +53,8 @@ function HopitalProvider({ children }) {
 
     if(usuarioEsDoctor) {
       console.log('Usuario encontrado:', usuarioEsDoctor);
+      const UsuarioLoggeadoDoctor = usuarios.find((user) => user.userType === 'doctor' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
+      setUsuarioLoggeadoDoctor(UsuarioLoggeadoDoctor)
       setUsuarioDoctorLogIn(true);
       setUsuarioEnfermeraLogIn(false);
       setUsuarioLogIn(true);
@@ -59,6 +63,8 @@ function HopitalProvider({ children }) {
 
     if(usuarioEsEnfermera) {
       console.log('Usuario encontrado:', usuarioEsEnfermera);
+      const UsuarioLoggeadoEnfermera = usuarios.find((user) => user.userType === 'enfermera' && user.userName === usuario.nombre && user.password === usuario.passwordLogin)
+      setUsuarioLoggeadoEnfermera(UsuarioLoggeadoEnfermera)
       setUsuarioEnfermeraLogIn(true);
       setUsuarioDoctorLogIn(false);
       setUsuarioLogIn(true);
@@ -83,6 +89,8 @@ function HopitalProvider({ children }) {
   // Navegacion de paginas
   const irHomePage =  () => {
     console.log('Regresando al home')
+    setUsuarioEnfermeraLogIn(false);
+    setUsuarioDoctorLogIn(false);
     setUsuarioPacienteLogIn(false);
     setUsuarioLogIn(false);
     setregistrandoNuevoUsario(false);
@@ -269,6 +277,8 @@ function HopitalProvider({ children }) {
         usuarioDoctorLogIn,
         usuarioEnfermeraLogIn,
         usuarioPacienteLogIn,
+        usuarioLoggeadoEnfermera,
+        usuarioLoggeadoDoctor
       }
     }>
       {children}

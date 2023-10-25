@@ -20,9 +20,6 @@ function VerRecetas() {
     <div>
       {citasPaciente.length === 0 && <p>No tiene citas/Recetas</p>}
 
-
-
-
       <table className="two-column-table">
         <thead>
           <tr>
@@ -43,9 +40,8 @@ function VerRecetas() {
               </tr>
             ))
           }
-          {/* Puedes agregar más filas según tus necesidades */}
         </tbody>
-    </table>
+      </table>
     </div>
   )
 }
