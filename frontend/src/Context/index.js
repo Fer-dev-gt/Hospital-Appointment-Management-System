@@ -22,6 +22,9 @@ function HopitalProvider({ children }) {
   const [verRecetas, setVerRecetas] = React.useState(false);                                                    // Estado para saber si el usuario quiere ir a la pagina de ver recetas
   const [comprarMedicina, setComprarMedicina] = React.useState(false);                                          // Estado para saber si el usuario quiere ir a la pagina de comprar medicina
   const [hacerPedido, setHacerPedido] = React.useState(false);                                                  // Estado para saber si el usuario quiere ir a la pagina de hacer pedido
+  const [manejarCitasAsginadas, setManejarCitasAsginadas] = React.useState(false);                              // Estado para saber si el usuario quiere ir a la pagina de manejar citas asignadas
+  const [ventanaReportesMedicina, setVentanaReportesMedicina] = React.useState(false);                          // Estado para saber si el usuario quiere ir a la pagina de ventana reportes medicina
+  const [ventanaReportesDoctores, setVentanaReportesDoctores] = React.useState(false);                          // Estado para saber si el usuario quiere ir a la pagina de ventana reportes doctores
 
   const [nombre, setNombre] = React.useState("");
   const [passwordLogin, setPasswordLogin] = React.useState("");
@@ -100,6 +103,9 @@ function HopitalProvider({ children }) {
     setVerRecetas(false);
     setComprarMedicina(false);
     setHacerPedido(false);
+    setVentanaReportesMedicina(false);
+    setManejarCitasAsginadas(false);
+    setVentanaReportesDoctores(false);
   }
 
   const irRegistrarUsuarioPage =  () => {
@@ -165,6 +171,27 @@ function HopitalProvider({ children }) {
     setVerRecetas(false);
     // setComprarMedicina(false);
     setHacerPedido(true);
+  }
+
+  const irManejarCitasAsginadas =  () => {
+    console.log('ir a manejar citas asignadas')
+    setManejarCitasAsginadas(true);
+    setVentanaReportesMedicina(false);
+    setVentanaReportesDoctores(false);
+  }
+
+  const irVentanaReportesMedicina =  () => {
+    console.log('ir a ventana reportes medicina')
+    setVentanaReportesMedicina(true);
+    setManejarCitasAsginadas(false);
+    setVentanaReportesDoctores(false);
+  }
+
+  const irVentanaReportesDoctores =  () => {
+    console.log('ir a ventana reportes doctores')
+    setVentanaReportesDoctores(true);
+    setManejarCitasAsginadas(false);
+    setVentanaReportesMedicina(false);
   }
 
 
@@ -257,11 +284,15 @@ function HopitalProvider({ children }) {
         irVerRecetasPage,
         irCompraMedicinaPage,
         irHacerPedidoPage,
+        irManejarCitasAsginadas,
+        irVentanaReportesMedicina,
+        irVentanaReportesDoctores,
         setVerRecetas,
         handlePasswordChange,
         getCitas,
         getMedicinas,
         agregarCita,
+        setHacerPedido,
         usuarios,
         usuarioLogIn,
         modificarUserScreen,
@@ -273,6 +304,9 @@ function HopitalProvider({ children }) {
         hacerPedido,
         citas,
         verRecetas,
+        manejarCitasAsginadas,
+        ventanaReportesMedicina,
+        ventanaReportesDoctores,
         medicinas,
         usuarioDoctorLogIn,
         usuarioEnfermeraLogIn,

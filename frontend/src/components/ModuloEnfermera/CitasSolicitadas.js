@@ -2,7 +2,6 @@ import React from "react";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
 
-
 function CitasSolicitadas() {
   const {
     usuarios,
@@ -118,7 +117,7 @@ function CitasSolicitadas() {
                     <select onChange={cambiarDoctor}>
                       <option value={null}>Seleccionar doctor</option>
                       {usuarios.filter(usuario => usuario.userType === 'doctor').map(doctor => (
-                        <option id={doctor.nombre} key={doctor.id} value={doctor.nombre}  >{doctor.nombre}</option>
+                        <option id={doctor.nombre} key={doctor.id} value={doctor.nombre}>{doctor.nombre} {doctor.apellido}</option>
                       ))}
                     </select>
                     <button onClick={()=>{cancelarCita(cita)}}>Regresar</button>

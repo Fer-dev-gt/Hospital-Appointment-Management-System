@@ -8,6 +8,7 @@ function HacerPedido(){
   const {
     usuarioLoggeado,
     medicinas,
+    setHacerPedido,
   } = React.useContext(HospitalContext);
 
   console.log('Inventario de medicinas:', medicinas);
@@ -140,7 +141,7 @@ function HacerPedido(){
           </tr>
         </tbody>
       </table>
-      <button className="realizar-pedido cancelar-pedido">Cancelar Pedido</button>
+      <button onClick={()=>{setHacerPedido(false)}}className="realizar-pedido cancelar-pedido">Cancelar Pedido</button>
       <button className="realizar-pedido">Realizar Pedido</button>
     </section>
   )

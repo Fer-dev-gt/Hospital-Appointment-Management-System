@@ -11,6 +11,10 @@ import { VerRecetas } from "../components/VerRecetas/VerRecetas";
 import { ComprarMedicina } from "../components/ComprarMedicina/ComprarMedicina";
 import { CitasSolicitadas } from "../components/ModuloEnfermera/CitasSolicitadas";
 import { CrearRecetas } from "../components/ModuloDoctor/CrearRecetas";
+import { ModuloDoctor } from "../components/ModuloDoctor/ModuloDoctor";
+import { ManejarCitasAsignadas } from "../components/ManejarCitasAsignadas/ManejarCitasAsignadas";
+import { MedicinasMasVendidas } from "../components/Reportes/MedicinasMasVendidas";
+import { DoctoresMasVisitados } from "../components/Reportes/DoctoresMasVisitados";
 
 function AppUI() {
   const {
@@ -25,6 +29,9 @@ function AppUI() {
     usuarioPacienteLogIn,
     usuarioEnfermeraLogIn,
     usuarioDoctorLogIn,
+    manejarCitasAsginadas,
+    ventanaReportesMedicina,
+    ventanaReportesDoctores,
   } = React.useContext(HospitalContext);
 
 
@@ -40,7 +47,10 @@ function AppUI() {
       {!!verRecetas && <VerRecetas />}
       {!!comprarMedicina && <ComprarMedicina />}
       {!!usuarioEnfermeraLogIn && <CitasSolicitadas />}
-      {!!usuarioDoctorLogIn && <CrearRecetas />}
+      {!!usuarioDoctorLogIn && <ModuloDoctor />}
+      {!!manejarCitasAsginadas && <ManejarCitasAsignadas />}
+      {!!ventanaReportesMedicina && <MedicinasMasVendidas />}
+      {!!ventanaReportesDoctores && <DoctoresMasVisitados />}
     </>
   );
 
