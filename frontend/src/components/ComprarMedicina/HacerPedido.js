@@ -1,5 +1,6 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
+import usuarioServicio from "../../services/usuarioServicio";
 import './HacerPedido.css';
 
 
@@ -7,8 +8,8 @@ function HacerPedido(){
 
   const {
     usuarioLoggeado,
-    medicinas,
     setHacerPedido,
+    medicinas,
   } = React.useContext(HospitalContext);
 
   console.log('Inventario de medicinas:', medicinas);
@@ -23,12 +24,12 @@ function HacerPedido(){
   const [cantidadAspirinaPedido, setCantidadAspirinaPedido] = React.useState(0);
   const [cantidadSalbutamolPedido, setCantidadSalbutamolPedido] = React.useState(0);
 
-  const agregarPanadolPedido = () => { if(cantidadPanadolPedido < panadol.cantidad) setCantidadPanadolPedido(cantidadPanadolPedido + 1)}
-  const agregarOmeprazolPedido = () => { if(cantidadOmeprazolPedido < omeprazol.cantidad) setCantidadOmeprazolPedido(cantidadOmeprazolPedido + 1)}
-  const agregarParacetamolPedido = () => { if(cantidadParacetamolPedido < paracetamol.cantidad) setCantidadParacetamolPedido(cantidadParacetamolPedido + 1)}
-  const agregarRamiprilPedido = () => { if(cantidadRamiprilPedido < ramipril.cantidad) setCantidadRamiprilPedido(cantidadRamiprilPedido + 1)}
-  const agregarAspirinaPedido = () => { if(cantidadAspirinaPedido < aspirina.cantidad) setCantidadAspirinaPedido(cantidadAspirinaPedido + 1)}
-  const agregarSalbutamolPedido = () => { if(cantidadSalbutamolPedido < salbutamol.cantidad) setCantidadSalbutamolPedido(cantidadSalbutamolPedido + 1)}
+  const agregarPanadolPedido = () => { cantidadPanadolPedido < panadol.cantidad ? setCantidadPanadolPedido(cantidadPanadolPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
+  const agregarOmeprazolPedido = () => { cantidadOmeprazolPedido < omeprazol.cantidad ? setCantidadOmeprazolPedido(cantidadOmeprazolPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
+  const agregarParacetamolPedido = () => { cantidadParacetamolPedido < paracetamol.cantidad ? setCantidadParacetamolPedido(cantidadParacetamolPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
+  const agregarRamiprilPedido = () => { cantidadRamiprilPedido < ramipril.cantidad ? setCantidadRamiprilPedido(cantidadRamiprilPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
+  const agregarAspirinaPedido = () => { cantidadAspirinaPedido < aspirina.cantidad ? setCantidadAspirinaPedido(cantidadAspirinaPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
+  const agregarSalbutamolPedido = () => { cantidadSalbutamolPedido < salbutamol.cantidad ? setCantidadSalbutamolPedido(cantidadSalbutamolPedido + 1) : alert('Ha superado el limite de unidades del medicamento')}
 
   const quitarPanadolPedido = () => { if (cantidadPanadolPedido > 0) setCantidadPanadolPedido(cantidadPanadolPedido - 1);};
   const quitarOmeprazolPedido = () => { if (cantidadOmeprazolPedido > 0) setCantidadOmeprazolPedido(cantidadOmeprazolPedido - 1);};
@@ -42,8 +43,50 @@ function HacerPedido(){
     if (cantidad <= 0) return 0;
     return precioMedicina * cantidad;
   }
+
+
+  const actualizarInvetarioMedicina = async (idMedicina) => {
+    const medicinaToUpdate = medicinas.find(medicina => medicina.id === idMedicina);
+    console.log('Guardando inventario medicina actualizada:', medicinaToUpdate);
+    
+    await usuarioServicio.actualizarMedicina(idMedicina, medicinaToUpdate);
+    console.log('Datos de medicinas actualizadas', medicinas);
+  }
+
   
   const Total = () => cantidadPanadolPedido * panadol.precio + cantidadOmeprazolPedido * omeprazol.precio + cantidadParacetamolPedido * paracetamol.precio + cantidadRamiprilPedido * ramipril.precio + cantidadAspirinaPedido * aspirina.precio + cantidadSalbutamolPedido * salbutamol.precio;
+
+  const realizarCompra = () => {
+    panadol.cantidad -= cantidadPanadolPedido;
+    setCantidadPanadolPedido(0);
+    omeprazol.cantidad -= cantidadOmeprazolPedido;
+    setCantidadOmeprazolPedido(0);
+    paracetamol.cantidad -= cantidadParacetamolPedido;
+    setCantidadParacetamolPedido(0);
+    ramipril.cantidad -= cantidadRamiprilPedido;
+    setCantidadRamiprilPedido(0);
+    aspirina.cantidad -= cantidadAspirinaPedido;
+    setCantidadAspirinaPedido(0);
+    salbutamol.cantidad -= cantidadSalbutamolPedido;
+    setCantidadSalbutamolPedido(0);
+
+    medicinas[0] = panadol;
+    medicinas[1] = omeprazol;
+    medicinas[2] = paracetamol;
+    medicinas[3] = ramipril;
+    medicinas[4] = aspirina;
+    medicinas[5] = salbutamol;
+  
+    console.log('Inventario de medicinas actualizado:', medicinas);
+    console.log('Compra realizada exitosamente');
+
+    actualizarInvetarioMedicina(panadol.id);
+    actualizarInvetarioMedicina(omeprazol.id);
+    actualizarInvetarioMedicina(paracetamol.id);
+    actualizarInvetarioMedicina(ramipril.id);
+    actualizarInvetarioMedicina(aspirina.id);
+    actualizarInvetarioMedicina(salbutamol.id);
+  }
   
   return(
     <section id="hacerPedidoSection" className="hacer-pedido">
@@ -142,7 +185,7 @@ function HacerPedido(){
         </tbody>
       </table>
       <button onClick={()=>{setHacerPedido(false)}}className="realizar-pedido cancelar-pedido">Cancelar Pedido</button>
-      <button className="realizar-pedido">Realizar Pedido</button>
+      <button onClick={()=>{realizarCompra()}} className="realizar-pedido">Realizar Pedido</button>
     </section>
   )
 }
