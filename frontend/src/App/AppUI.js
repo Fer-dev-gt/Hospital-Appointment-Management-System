@@ -10,7 +10,6 @@ import { VerCitas } from "../components/VerCitasScreen/VerCitas";
 import { VerRecetas } from "../components/VerRecetas/VerRecetas";
 import { ComprarMedicina } from "../components/ComprarMedicina/ComprarMedicina";
 import { CitasSolicitadas } from "../components/ModuloEnfermera/CitasSolicitadas";
-import { CrearRecetas } from "../components/ModuloDoctor/CrearRecetas";
 import { ModuloDoctor } from "../components/ModuloDoctor/ModuloDoctor";
 import { ManejarCitasAsignadas } from "../components/ManejarCitasAsignadas/ManejarCitasAsignadas";
 import { MedicinasMasVendidas } from "../components/Reportes/MedicinasMasVendidas";

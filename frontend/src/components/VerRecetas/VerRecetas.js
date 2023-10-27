@@ -27,6 +27,7 @@ function VerRecetas() {
             <th>Padecimiento</th>
             <th>Descripción</th>
             <th>Precio de la consulta</th>
+            <th>Doctor que lo atendió</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,8 @@ function VerRecetas() {
                 <td>{cita.receta.padecimiento}</td>
                 <td>{cita.receta.descripcion}</td>
                 <td>{cita.receta.precioConsulta}</td>
+                <td>{cita.receta.atendioDoctor}</td>
+                
               </tr>
             ))
           }

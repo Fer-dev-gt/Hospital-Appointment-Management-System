@@ -1,6 +1,5 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
-import { CrearRecetas } from "./CrearRecetas";
 
 const ModuloDoctor = () => {
   const {

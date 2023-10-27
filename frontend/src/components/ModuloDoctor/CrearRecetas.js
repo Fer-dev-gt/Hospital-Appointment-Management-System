@@ -1,32 +1,88 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
+import usuarioServicio from "../../services/usuarioServicio";
 import './CrearRecetas.css'
 
-const CrearRecetas = ({objetoCita}) => {
-
+const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
   const {
-    irManejarCitasAsginadas,
-    irSolictarCitaPage,
-    usuarioLoggeado,
-    irVerCitasPage,
+    citas,
+    usuarioLoggeadoDoctor
   } = React.useContext(HospitalContext);
 
   React.useEffect(() => {console.log('objetoCita', objetoCita)}, [])
+  
+  const [newFecha, setNewFecha] = React.useState("");
+  const [newPadecimiento, setNewPadecimiento] = React.useState("");
+  const [newDescripcion, setNewDescripcion] = React.useState("");
+  
+  const handleNewFecha = (event) => setNewFecha(event.target.value);
+  const handleNewPadecimiento = (event) => setNewPadecimiento(event.target.value);
+  const handleNewDescripcion = (event) => setNewDescripcion(event.target.value);
+  
+  const [mostrarVentanaCreaReceta, setMostrarVentanaCreaReceta] = React.useState(false);
+
+
+  const subirCitaAlArchivo = async (idCita) => {
+    const citaToUpdate = citas.find(cita => cita.idCita === idCita);
+    console.log('Guardando cita actualizada:', citaToUpdate);
+    
+    await usuarioServicio.actualizarCita(idCita, citaToUpdate);
+    console.log('Datos de citas actualizadas', citas);
+  }
+
+
+  const ocultarMenuCita = () => {
+    objetoCita.statusDoctor = 'no creando';
+    console.log('objetoCita', objetoCita);
+    setMostrarVentanaCreaReceta(!mostrarVentanaCreaReceta);
+  }
+
+
+  const guardarReceta = async () => {
+    console.log('objetoCita antes', objetoCita);
+    objetoCita.statusDoctor = 'completada';
+    objetoCita.status = 'completada';
+    
+    const datosAnteriores = objetoCita.receta;
+    objetoCita.receta = { 
+      ...datosAnteriores, 
+      fecha: newFecha, 
+      padecimiento: newPadecimiento, 
+      descripcion: newDescripcion,
+      precioConsulta: 100,
+      atendioDoctor: `${usuarioLoggeadoDoctor.nombre} ${usuarioLoggeadoDoctor.apellido}`
+    };
+
+    console.log('guardando receta', objetoCita);
+    subirCitaAlArchivo(objetoCita.idCita);
+    actualizarPantalla(!valorAnterior);
+  }
+
 
   return(
-    <div className="crear-recetas">
-      <h1>Creando Recetas</h1>
-      <div className="crear-recetas__form">
-        <label htmlFor="fecha" className="crear-recetas__label">Fecha:</label>
-        <input type="date" id="fecha" name="fecha" className="crear-recetas__input" />
-
-        <label htmlFor="nombre-paciente" className="crear-recetas__label">Nombre Paciente:</label>
-        <input type="text" id="nombre-paciente" name="nombre-paciente" className="crear-recetas__input" />
-
-        <label htmlFor="descripcion" className="crear-recetas__label">Descripción:</label>
-        <textarea id="descripcion" name="descripcion" className="crear-recetas__textarea"></textarea>
+    <>
+      {objetoCita.statusDoctor === 'creando' && 
+        <div className="crear-recetas">
+        <h1>Creando Receta</h1>
+        <div className="crear-recetas__form">
+          <label htmlFor="fecha" className="crear-recetas__label">Fecha:</label>
+          <input type="date" id="fecha" name="fecha" className="crear-recetas__input" value={newFecha} onChange={handleNewFecha}/>
+  
+          <label htmlFor="nombre-paciente" className="crear-recetas__label">Nombre Paciente:</label>
+          <input type="text" id="nombre-paciente" name="nombre-paciente" className="crear-recetas__input" />
+  
+          <label htmlFor="padecimiento-paciente" className="crear-recetas__label">Padecimiento:</label>
+          <input type="text" id="padecimiento-paciente" name="padecimiento-paciente" className="crear-recetas__input" value={newPadecimiento} onChange={handleNewPadecimiento} />
+  
+          <label htmlFor="descripcion" className="crear-recetas__label">Descripción:</label>
+          <textarea id="descripcion" name="descripcion" className="crear-recetas__textarea" value={newDescripcion} onChange={handleNewDescripcion}></textarea>
+        </div>
+        <button onClick={ocultarMenuCita}>Regresar</button>
+        <button onClick={guardarReceta}>Crear receta</button>
       </div>
-    </div>
+      
+      }
+    </>
   )
 };
 
