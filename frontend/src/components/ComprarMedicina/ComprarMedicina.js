@@ -51,7 +51,7 @@ function ComprarMedicina() {
           <button className="precio">$35.00</button>
         </div>
       </div>
-    <button onClick={irHacerPedidoPage} id="SiguienteBtn">Hacer Pedido</button>
+    <button onClick={irHacerPedidoPage} id="SiguienteBtn" className="hacer-pedido-button">Hacer Pedido</button>
 
     {!!hacerPedido && <HacerPedido />}
   </section>

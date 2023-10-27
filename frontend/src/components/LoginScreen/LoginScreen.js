@@ -1,5 +1,6 @@
 import React from 'react';
 import { HospitalContext } from "../../Context";
+import './LoginScreen.css';
 
 function LoginScreen() {
   
@@ -12,7 +13,7 @@ function LoginScreen() {
   } = React.useContext(HospitalContext);
 
   return(
-    <div>
+    <div className='login-component'>
       <section id="login-section" className="login-container">
         <h1>UHospital - Inicio de Sesión</h1>
           <label>Name: </label>

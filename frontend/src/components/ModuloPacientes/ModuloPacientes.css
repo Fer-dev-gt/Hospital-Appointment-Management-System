@@ -1,0 +1,24 @@
+.modulo-pacientes-container {
+  display: flex;
+  justify-content: center; /* Add this line */
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.modulo-pacientes-container button {
+  display: block;
+  margin: 0 10px; /* Add this line */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.modulo-pacientes-container button:hover {
+  background-color: #0062cc;
+}

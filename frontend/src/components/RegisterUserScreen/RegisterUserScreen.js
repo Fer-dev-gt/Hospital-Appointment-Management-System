@@ -2,6 +2,7 @@ import React from "react";
 import { faker } from "@faker-js/faker";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
+import './RegisterUserScreen.css';
 
 function RegisterUserScreen() {
 
@@ -38,7 +39,7 @@ function RegisterUserScreen() {
     const passwordCorta = usuario.password.length < 8;
 
     if(userNameRepetido) {
-      alert('Usuario ya existe');
+      alert(`Usuario ya ${userNameRepetido.userName} existe`);
       return;
     }
 
@@ -55,6 +56,7 @@ function RegisterUserScreen() {
 
     await usuarioServicio.crearUsuario(usuario);
     getUsuarios();
+    console.log('Usuario registrado exitosamente', usuario);
   }
   
 
@@ -106,7 +108,7 @@ function RegisterUserScreen() {
            /><br /><br />
         <label>Phone: (Opcional) </label>
         <input 
-          type="tel" 
+          type="text" 
           id="phone"
           value={phone}
           onChange={handlePhoneNewUser}

@@ -19,11 +19,11 @@ const ManejarCitasAsignadas = () => {
   const citasPaciente = citas.filter(cita => cita.doctor === usuarioLoggeadoDoctor.nombre && cita.statusDoctor !== 'completada');                  
 
   return (
-    <div>
+    <div className="citas-container">
       <h1>Citas asignadas</h1>
-      <div>
+      <div className="receta-paciente">
       {citasPaciente.map(cita => (
-        <div key={cita.idCita}>
+        <div className="datos-citas" key={cita.idCita}>
           <p>Fecha: {cita.fechaCita}</p>
           <p>Hora: {cita.horaCita}</p>
           <p>Motivo: {cita.motivoCita}</p>

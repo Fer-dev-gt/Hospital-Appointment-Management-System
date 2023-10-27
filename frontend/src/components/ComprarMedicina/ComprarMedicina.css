@@ -1,8 +1,16 @@
+#medicamentosSection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
 .medicamentos-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
+  width: 60%;
 }
 
 .medicamento {
@@ -10,10 +18,14 @@
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4px;
 }
 
 .medicamento h2 {
-  margin-top: 0;
+  margin:0;
 }
 
 .medicamento p {
@@ -28,8 +40,25 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 16px;
 }
 
 .precio:hover {
   background-color: #3e8e41;
+}
+
+
+.hacer-pedido-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.hacer-pedido-button {
+  background-color: #0069d9;
 }

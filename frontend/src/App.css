@@ -1,7 +1,16 @@
 body {
   background-color: #F5DEB3;
   font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .inactive {
   display: none;
+}
+
+#homeLabel {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
 }

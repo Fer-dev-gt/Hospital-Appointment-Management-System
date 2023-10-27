@@ -2,6 +2,7 @@ import React from "react";
 import { HospitalContext } from "../../Context";
 import { faker } from "@faker-js/faker";
 import usuarioServicio from "../../services/usuarioServicio";
+import './SolicitarCita.css';
 
 
 function SolicitarCita() {
@@ -55,7 +56,7 @@ function SolicitarCita() {
 
 
   return (
-    <section id="hacerCita-section" className="hacer-cita">
+    <section id="hacerCita-section" className="solicitar-cita-container">
       <h1>Solicitar una cita</h1>
         <label>Fecha:</label>
         <input 

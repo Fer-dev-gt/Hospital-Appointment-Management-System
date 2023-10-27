@@ -1,0 +1,47 @@
+.ver-citas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.ver-citas-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.ver-citas-container p {
+  margin: 0;
+  padding: 5px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.ver-citas-container p:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+.ver-citas-container p:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.ver-citas-container p:first-child {
+  font-weight: bold;
+}
+
+.ver-citas-container p:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.ver-citas-container .no-citas-message {
+  color: red;
+  margin-top: 10px;
+}
+
+.cita-container{
+  border: 1px solid #000; 
+}
+
+.separator{
+  background-color: transparent;
+}

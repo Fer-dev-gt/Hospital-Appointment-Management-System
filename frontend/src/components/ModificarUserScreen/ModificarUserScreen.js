@@ -1,6 +1,7 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
+import './ModificarUserScreen.css';
 
 function ModificarUserScreen() {
   const {
@@ -56,7 +57,7 @@ function ModificarUserScreen() {
 
   return (
     <div>
-      <section id="modificarPaciente-section" className="modificar-paciente">
+      <section id="modificarPaciente-section" className="modificar-user-container">
         <h1>UHospital - Modificar Perfil</h1>
           <label>Nombre: </label>
           <input 

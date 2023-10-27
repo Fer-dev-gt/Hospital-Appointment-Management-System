@@ -1,6 +1,7 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
 import usuarioServicio from "../../services/usuarioServicio";
+import './CitasSolicitadas.css';
 
 function CitasSolicitadas() {
   const {
@@ -89,7 +90,7 @@ function CitasSolicitadas() {
 
 
   return(
-    <div>
+    <div className="citas-container">
       <h1>Listado de citas pendientes</h1>
       {citasPendientes.length === 0 && <p>No Hay citas por administrar</p>}
       {citasPendientes.length > 0 && (
@@ -120,7 +121,7 @@ function CitasSolicitadas() {
                         <option id={doctor.nombre} key={doctor.id} value={doctor.nombre}>{doctor.nombre} {doctor.apellido}</option>
                       ))}
                     </select>
-                    <button onClick={()=>{cancelarCita(cita)}}>Regresar</button>
+                    <button className="regresarButton" onClick={()=>{cancelarCita(cita)}}>Regresar</button>
                   </>
                   )}
                 </td>

@@ -1,0 +1,73 @@
+.citas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+}
+
+th, td {
+  text-align: left;
+  padding: 12px;
+}
+
+th {
+  background-color: #007bff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #0062cc;
+}
+
+select {
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+option {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.regresarButton{
+  background-color: #ff9100;
+}
+
+.regresarButton:hover{
+  background-color: #ff5900;
+}

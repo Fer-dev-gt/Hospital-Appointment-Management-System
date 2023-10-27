@@ -36,7 +36,7 @@ function AppUI() {
 
   return (
     <>
-      <h1 onClick={irHomePage} id="home">UHospital</h1>
+      <h1 onClick={irHomePage} id="homeLabel">UHospital</h1>
       {(!usuarioLogIn && !registrandoNuevoUsario) && <LoginScreen />}
       {!!usuarioPacienteLogIn && <ModuloPacientes />}
       {!!registrandoNuevoUsario && <RegisterUserScreen />}

@@ -1,5 +1,6 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
+import "./ModuloPacientes.css"
 
 const ModuloPacientes = () => {
   const {
@@ -14,7 +15,7 @@ const ModuloPacientes = () => {
   console.log('usuarioLoggeado', usuarioLoggeado);
 
   return (
-    <div>
+    <div className="modulo-pacientes-container">
       <button onClick={irModificarUsuarioPage}>Modificar Perfil</button>
       <button onClick={irSolictarCitaPage}>Solicitar cita</button>
       <button onClick={irVerCitasPage}>Ver estado de citas creadas</button>

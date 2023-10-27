@@ -98,8 +98,8 @@ function HacerPedido(){
             <th>Precio</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
-            <th></th>
-            <th></th>
+            <th>Agregar</th>
+            <th>Quitar</th>
           </tr>
         </thead>
         <tbody>
