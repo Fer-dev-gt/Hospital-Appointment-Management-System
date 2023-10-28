@@ -20,8 +20,8 @@ function VerCitas() {
   return (
     <>
   <div className="ver-citas-container">
-    {citasPaciente.map(cita => (<div>
-      <div className="cita-container" key={cita.idCita}>
+    {citasPaciente.map(cita => (<div key={`${cita.idCita}`}>
+      <div className="cita-container" key={`${cita.id} ${cita.fechaCita} `}>
         <p>Fecha: {cita.fechaCita}</p>
         <p>Hora: {cita.horaCita}</p>
         <p>Motivo: {cita.motivoCita}</p>

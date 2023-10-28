@@ -56,4 +56,25 @@ usuarioServicio.actualizarMedicina = async (id, medicina) => {
   return data;
 }
 
+
+usuarioServicio.obtenerMedicinasMasVendidas = async () => {
+  const data = await http.get("http://localhost:4000/usuarios/medicinasreportes");
+  return data;
+}
+
+usuarioServicio.actualizarMedicinasMasVendidas = async (id, medicina) => {
+  const data = await http.put(`http://localhost:4000/usuarios/medicinasreportes/${id}`, medicina);
+  return data;
+}
+
+usuarioServicio.obtenerDoctoresMasSolicitados = async () => {
+  const data = await http.get("http://localhost:4000/usuarios/doctoresreportes");
+  return data;
+}
+
+usuarioServicio.actualizarDoctoresMasSolicitados = async (id, doctor) => {
+  const data = await http.put(`http://localhost:4000/usuarios/doctoresreportes/${id}`, doctor);
+  return data;
+}
+
 export default usuarioServicio ;

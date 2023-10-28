@@ -189,4 +189,67 @@ controlador.actualizarMedicina = (req, res) => {
   return res.send('No existe el archivo');                                          
 }
 
+
+controlador.leerMedicinasReportes = (req, res) => {
+  const buffer = fs.readFileSync('medicinasReportes.bin');
+  const data = JSON.parse(buffer.toString());
+  res.send(data);
+}
+
+
+controlador.actualizarMedicinaReportes = (req, res) => {
+  const data = req.body;
+  const medicinaId = req.params.id;
+
+  if (fs.existsSync('medicinasReportes.bin')) {
+    const buffer = fs.readFileSync('medicinasReportes.bin');
+    const dataAnterior = JSON.parse(buffer.toString());
+
+    const dataNueva = dataAnterior.map((medicina) => {
+      if (medicina.id == medicinaId) {
+        return data;
+      }
+      return medicina;
+    });
+
+    const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));
+    fs.writeFileSync('medicinasReportes.bin', bufferNuevo);
+    return res.send('Actualizando medicinas desde el controlador si existe');
+  }
+
+  return res.send('No existe el archivo');
+}
+
+
+controlador.leerDoctoresReportes = (req, res) => {
+  const buffer = fs.readFileSync('doctoresReportes.bin');
+  const data = JSON.parse(buffer.toString());
+  res.send(data);
+}
+
+
+controlador.actualizarDoctoresReportes = (req, res) => {
+  const data = req.body;
+  const doctorId = req.params.id;
+
+  if (fs.existsSync('doctoresReportes.bin')) {
+    const buffer = fs.readFileSync('doctoresReportes.bin');
+    const dataAnterior = JSON.parse(buffer.toString());
+
+    const dataNueva = dataAnterior.map((doctor) => {
+      if (doctor.id == doctorId) {
+        return data;
+      }
+      return doctor;
+    });
+
+    const bufferNuevo = Buffer.from(JSON.stringify(dataNueva));
+    fs.writeFileSync('doctoresReportes.bin', bufferNuevo);
+    return res.send('Actualizando doctores desde el controlador si existe');
+  }
+
+  return res.send('No existe el archivo');
+}
+
+
 module.exports = controlador;                                                       // Exportando mi objeto controlador para poder usarlo en otros archivos

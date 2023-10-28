@@ -7,6 +7,8 @@ function HopitalProvider({ children }) {
   const [usuarios, setUsuarios] = React.useState([]);
   const [citas, setCitas] = React.useState([]);
   const [medicinas, setMedicinas] = React.useState([]);
+  const [medicinasReportes, setMedicinasReportes] = React.useState([]);
+  const [doctoresReportes, setDoctoresReportes] = React.useState([]);
   const [usuarioLoggeado, setUsuarioLoggeado] = React.useState({});
   const [usuarioLoggeadoEnfermera, setUsuarioLoggeadoEnfermera] = React.useState({});                           
   const [usuarioLoggeadoDoctor, setUsuarioLoggeadoDoctor] = React.useState({});                                 
@@ -262,6 +264,21 @@ function HopitalProvider({ children }) {
   }
 
 
+  // Funciones CRUD de medicinas reportes
+  const getReporteMedicinas = async () => {
+    const medicinasReporte = await usuarioServicio.obtenerMedicinasMasVendidas();
+    if (medicinasReporte) setMedicinasReportes(medicinasReporte);
+    console.log(medicinasReporte);
+  }
+
+
+  const getReporteDoctores = async () => {
+    const doctoresReporte = await usuarioServicio.obtenerDoctoresMasSolicitados();
+    if (doctoresReporte) setDoctoresReportes(doctoresReporte);
+    console.log(doctoresReporte);
+  }
+
+
   const handleNombreChange = (event) => setNombre(event.target.value);
   const handleIdChange = (event) => setId(event.target.value);
   const handlePasswordChange = (event) => setPasswordLogin(event.target.value);
@@ -293,6 +310,8 @@ function HopitalProvider({ children }) {
         getMedicinas,
         agregarCita,
         setHacerPedido,
+        getReporteMedicinas,
+        getReporteDoctores,
         usuarios,
         usuarioLogIn,
         modificarUserScreen,
@@ -312,7 +331,9 @@ function HopitalProvider({ children }) {
         usuarioEnfermeraLogIn,
         usuarioPacienteLogIn,
         usuarioLoggeadoEnfermera,
-        usuarioLoggeadoDoctor
+        usuarioLoggeadoDoctor,
+        medicinasReportes,
+        doctoresReportes,
       }
     }>
       {children}

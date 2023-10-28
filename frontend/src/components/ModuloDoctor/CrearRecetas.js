@@ -6,10 +6,17 @@ import './CrearRecetas.css'
 const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
   const {
     citas,
-    usuarioLoggeadoDoctor
+    usuarioLoggeadoDoctor,
+    getReporteDoctores,
+    doctoresReportes,
   } = React.useContext(HospitalContext);
 
   React.useEffect(() => {console.log('objetoCita', objetoCita)}, [])
+
+  React.useEffect(() => {
+    console.log('Reporte de doctores en doctoresReportes.bin');
+    getReporteDoctores();
+  }, [])
   
   const [newFecha, setNewFecha] = React.useState("");
   const [newPadecimiento, setNewPadecimiento] = React.useState("");
@@ -21,6 +28,7 @@ const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
   
   const [mostrarVentanaCreaReceta, setMostrarVentanaCreaReceta] = React.useState(false);
 
+  const reporteDoctor = doctoresReportes.find(doctor => doctor.id === usuarioLoggeadoDoctor.id);
 
   const subirCitaAlArchivo = async (idCita) => {
     const citaToUpdate = citas.find(cita => cita.idCita === idCita);
@@ -28,6 +36,14 @@ const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
     
     await usuarioServicio.actualizarCita(idCita, citaToUpdate);
     console.log('Datos de citas actualizadas', citas);
+  }
+
+  const subirReporteAlArchivo = async (idDoctor) => {
+    const doctorToUpdate = doctoresReportes.find(doctor => doctor.id === idDoctor);
+    console.log('Guardando reporte actualizado:', doctorToUpdate);
+
+    await usuarioServicio.actualizarDoctoresMasSolicitados(idDoctor, doctorToUpdate);
+    console.log('Datos de reporte actualizados', doctoresReportes);
   }
 
 
@@ -53,9 +69,12 @@ const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
       atendioDoctor: `${usuarioLoggeadoDoctor.nombre} ${usuarioLoggeadoDoctor.apellido}`
     };
 
+    reporteDoctor.citasAtendidas += 1;
+
     console.log('guardando receta', objetoCita);
     subirCitaAlArchivo(objetoCita.idCita);
     actualizarPantalla(!valorAnterior);
+    subirReporteAlArchivo(reporteDoctor.id);
   }
 
 
