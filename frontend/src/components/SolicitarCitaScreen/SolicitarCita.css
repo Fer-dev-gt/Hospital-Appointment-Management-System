@@ -24,7 +24,7 @@
 #motivo-cita,
 .solicitar-cita-container select {
   display: inline-block;
-  width: 50%;
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -46,7 +46,7 @@
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #007bff;
+  background-color: #28a745;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
@@ -54,7 +54,7 @@
 }
 
 .solicitar-cita-container button:hover {
-  background-color: #0062cc;
+  background-color: #218838;
 }
 
 .solicitar-cita-container .error-message {

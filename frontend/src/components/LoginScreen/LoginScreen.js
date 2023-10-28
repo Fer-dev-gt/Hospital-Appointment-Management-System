@@ -31,8 +31,10 @@ function LoginScreen() {
             value={nombre}
             onChange={handlePasswordChange}
             /><br/><br/>
-          <button onClick={verificarLogin} id="loginBtn">Iniciar Sesión</button>
-          <button onClick={irRegistrarUsuarioPage} id="irRegistrarUsarioPageBtn">Registrar nuevo Usuario</button>
+          <div className='login-buttons'>
+            <button onClick={verificarLogin} id="loginBtn">Iniciar Sesión</button>
+            <button onClick={irRegistrarUsuarioPage} id="irRegistrarUsarioPageBtn">Registrar nuevo Usuario</button>
+          </div>
       </section>
     </div>
   );

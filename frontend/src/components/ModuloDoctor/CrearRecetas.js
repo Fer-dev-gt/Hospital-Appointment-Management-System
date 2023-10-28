@@ -84,7 +84,7 @@ const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
         <div className="crear-recetas">
         <h1>Creando Receta</h1>
         <div className="crear-recetas__form">
-          <label htmlFor="fecha" className="crear-recetas__label">Fecha:</label>
+          <label htmlFor="fecha" className="crear-recetas__label" id="fechaLable">Fecha:</label>
           <input type="date" id="fecha" name="fecha" className="crear-recetas__input" value={newFecha} onChange={handleNewFecha}/>
   
           <label htmlFor="nombre-paciente" className="crear-recetas__label">Nombre Paciente:</label>
@@ -96,8 +96,10 @@ const CrearRecetas = ({objetoCita, actualizarPantalla, valorAnterior}) => {
           <label htmlFor="descripcion" className="crear-recetas__label">Descripción:</label>
           <textarea id="descripcion" name="descripcion" className="crear-recetas__textarea" value={newDescripcion} onChange={handleNewDescripcion}></textarea>
         </div>
-        <button onClick={ocultarMenuCita}>Regresar</button>
-        <button onClick={guardarReceta}>Crear receta</button>
+        <div className="botones-crear-receta">
+          <button onClick={ocultarMenuCita}>Regresar</button>
+          <button onClick={guardarReceta}>Crear receta</button>
+        </div>
       </div>
       
       }

@@ -3,19 +3,21 @@
   border-collapse: collapse;
   margin: auto;
 }
-
 .two-column-table th, .two-column-table td {
   border: 1px solid #000;
   padding: 8px;
   text-align: left;
 }
-
-.two-column-table th {
+.two-column-table tr:nth-child(odd) {
   background-color: #f0f0f0;
-  font-weight: bold;
 }
-
-/* Formulario.css */
+.two-column-table tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+.two-column-table tr:nth-child(even):hover,
+.two-column-table tr:nth-child(odd):hover {
+  background-color: #87d6e4;
+}
 
 .form-container {
   width: 300px;
@@ -25,18 +27,15 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
 .form-label {
   font-weight: bold;
 }
-
 .form-input {
   width: 100%;
   padding: 8px;
   margin: 8px 0;
   border-radius: 3px;
 }
-
 .form-button {
   background-color: #007bff;
   color: #fff;

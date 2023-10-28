@@ -36,6 +36,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.registerPatient-container select{
+  margin-left: 8px;
+  width: 104%;
+}
+
 .registerPatient-container input[type="text"]:focus,
 .registerPatient-container input[type="password"]:focus,
 .registerPatient-container select:focus,

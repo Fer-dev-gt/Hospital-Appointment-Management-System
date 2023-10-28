@@ -1,6 +1,7 @@
 import React from "react";
 import { HospitalContext } from "../../Context";
 import { CrearRecetas } from "../ModuloDoctor/CrearRecetas";
+import "./ManejarCitasAsignadas.css";
 
 const ManejarCitasAsignadas = () => {
 
@@ -19,7 +20,7 @@ const ManejarCitasAsignadas = () => {
   const citasPaciente = citas.filter(cita => cita.doctor === usuarioLoggeadoDoctor.nombre && cita.statusDoctor !== 'completada');                  
 
   return (
-    <div className="citas-container">
+    <div className="citas-containerDoctor">
       <h1>Citas asignadas</h1>
       <div className="receta-paciente">
       {citasPaciente.map(cita => (
@@ -29,9 +30,9 @@ const ManejarCitasAsignadas = () => {
           <p>Motivo: {cita.motivoCita}</p>
           <p>Estado de la cita: {cita.status}</p>
           <p>Doctor: {cita.doctor} {usuarioLoggeadoDoctor.apellido}</p>
-          <button onClick={()=>{abrirVentanaCreaReceta(cita)}}>Crear receta para la cita</button>
+          <button className="crear-receta" onClick={()=>{abrirVentanaCreaReceta(cita)}}>Crear receta para la cita</button>
           {cita.statusDoctor =='creando' && <CrearRecetas objetoCita={cita} actualizarPantalla={setMostrarVentanaCreaReceta} valorAnterior={mostrarVentanaCreaReceta}/>}
-          <p>---------------------------------------------------------</p>
+          <p id="linea">---------------------------------------------</p>
         </div>
       ))}
       {citasPaciente.length === 0 && <p>No tiene citas asignadas o pendientes de revisar</p>}

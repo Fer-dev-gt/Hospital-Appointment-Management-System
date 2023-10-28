@@ -5,7 +5,7 @@ package-lock.json
 usuarios.bin
 citas.bin
 medicinas.bin
-pedido.bin
+pedidos.bin
 medicinasReportes.bin
 doctoresReportes.bin
 

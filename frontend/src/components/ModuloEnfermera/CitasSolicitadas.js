@@ -112,7 +112,7 @@ function CitasSolicitadas() {
                 <td>{cita.horaCita}</td>
                 <td>{cita.motivoCita}</td>
                 
-                <td><button onClick={()=>{recharzarCita(cita)}} >Rechazar</button></td>
+                <td><button className="rechazarCita" onClick={()=>{recharzarCita(cita)}} >Rechazar</button></td>
                 <td><button onClick={()=>{aceptarCita(cita)}}>{cita.status!=='confirmar' ? "Aceptar":"Confirmar"}</button> {(cita.status === 'confirmar') && 
                   (<>
                     <select onChange={cambiarDoctor}>

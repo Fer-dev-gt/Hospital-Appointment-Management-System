@@ -17,10 +17,9 @@
   width: 100%;
   max-width: 500px;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgb(154, 249, 103);
+  background-color: #ae38fc;
 }
 
 .crear-recetas__label {
@@ -45,4 +44,20 @@
 .crear-recetas__textarea:focus {
   outline: none;
   box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
+.botones-crear-receta {
+  margin-top: 12px;
+}
+.botones-crear-receta button{
+  background-color: #4CAF50;
+}
+.botones-crear-receta button:hover{
+  background-color: #3e8e41;
+}
+.crear-recetas__form label{
+  margin-top: 10px;
+}
+#fechaLable{
+  margin: 0 0 10px 0;
 }

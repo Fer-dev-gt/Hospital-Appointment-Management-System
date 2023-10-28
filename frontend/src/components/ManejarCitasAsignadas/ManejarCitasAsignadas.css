@@ -1,0 +1,76 @@
+.citas-containerDoctor {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.receta-paciente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.datos-citas {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #000;
+}
+
+.datos-citas p {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.crear-receta {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.crear-receta:hover {
+  background-color: #0062cc;
+}
+
+p.separator {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+
+p.no-citas {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  color: #dc3545;
+}
+.crear-receta {
+  background-color: #4CAF50;
+}
+.crear-receta:hover {
+  background-color: #3e8e41;
+}
+#linea {
+  color: transparent;
+}

@@ -88,3 +88,13 @@ tbody tr:hover {
 .cancelar-pedido:hover {
   background-color: #b90a0a;
 }
+.tabla-pedidos tr:nth-child(odd){
+  background-color: #f0f0f0;
+}
+.tabla-pedidos tr:nth-child(even){
+  background-color: #e0e0e0;
+}
+.tabla-pedidos tr:nth-child(even):hover,
+.tabla-pedidos tr:nth-child(odd):hover{
+  background-color: #87d6e4;
+}

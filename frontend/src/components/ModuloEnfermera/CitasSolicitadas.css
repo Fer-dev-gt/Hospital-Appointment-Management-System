@@ -27,7 +27,7 @@ th, td {
 }
 
 th {
-  background-color: #007bff;
+  background-color: #ffd900;
 }
 
 tr:nth-child(even) {
@@ -70,4 +70,10 @@ option {
 
 .regresarButton:hover{
   background-color: #ff5900;
+}
+.rechazarCita{
+  background-color: #fa0000;
+}
+.rechazarCita:hover{
+  background-color: #b90a0a;
 }

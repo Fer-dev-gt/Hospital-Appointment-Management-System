@@ -1,5 +1,5 @@
 body {
-  background-color: #F5DEB3;
+  background: linear-gradient(45deg,#9803fc,#4f74ff 50%,#4000ff);
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -8,9 +8,18 @@ body {
 .inactive {
   display: none;
 }
-
 #homeLabel {
-  font-size: 2rem;
+  color: #fff;
+  font-size: 4rem;
   margin-bottom: 20px;
   text-align: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  margin: 0 24px;
+  position: relative;
+  min-height: 100vh;
+  align-items: center;
 }

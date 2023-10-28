@@ -143,7 +143,7 @@ function HacerPedido(){
   return(
     <section id="hacerPedidoSection" className="hacer-pedido">
       <h1>UHospital - Hacer Pedido</h1>
-      <table>
+      <table className="tabla-pedidos">
         <thead>
           <tr>
             <th>Nombre</th>
@@ -232,6 +232,7 @@ function HacerPedido(){
             <td></td>
             <td></td>
             <td><strong>Total: Q {Total()}.00</strong></td>
+            <td></td>
             <td></td>
           </tr>
         </tbody>
