@@ -51,6 +51,7 @@ function SolicitarCita() {
 
     await usuarioServicio.crearCita(datosCita);
     getCitas();
+    console.log('Cita registrada con éxito');
   }
 
 

@@ -22,7 +22,7 @@ const DoctoresMasVisitados = () => {
   return (
     <>
       <div className="ver-citas-container">
-        <h1>Medicinas más vendidas</h1>
+        <h1>Doctores con más citas atendidas</h1>
         {doctoresMasSolicitados.map(doctor => (<div key={`${doctor.id} ${doctor.nombre}`}>
           <div className="cita-container" key={doctor.id}>
             <p>Nombre del Dr./Dra. : {`${doctor.nombre} ${doctor.apellido}`}</p>

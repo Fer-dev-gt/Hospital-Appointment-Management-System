@@ -1,7 +1,6 @@
 import React from "react";
 import { HospitalContext } from "../Context";
 import { LoginScreen } from "../components/LoginScreen/LoginScreen";
-// import { UsuarioComponente } from "../components/UsuariosComponentes/UsuarioComponente";
 import { RegisterUserScreen } from "../components/RegisterUserScreen/RegisterUserScreen";
 import { ModuloPacientes } from "../components/ModuloPacientes/ModuloPacientes";
 import { ModificarUserScreen } from "../components/ModificarUserScreen/ModificarUserScreen";
@@ -33,7 +32,6 @@ function AppUI() {
     ventanaReportesDoctores,
   } = React.useContext(HospitalContext);
 
-
   return (
     <>
       <h1 onClick={irHomePage} id="homeLabel">🏥 U-Hospital 🏥</h1>
@@ -52,8 +50,6 @@ function AppUI() {
       {!!ventanaReportesDoctores && <DoctoresMasVisitados />}
     </>
   );
-
 }
-
 
 export { AppUI };   
