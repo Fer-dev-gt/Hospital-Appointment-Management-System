@@ -62,6 +62,9 @@ If you want to make changes to the source code you just need to:
 Technologies used in the project:
 
 *   React 18.2.0
+*   cors 2.8.5
+*   express 4.18.2
+*   faker-js/faker 8.1.0
 *   web-vitals 3.4.0
 *   iOS 13.4.1
 
