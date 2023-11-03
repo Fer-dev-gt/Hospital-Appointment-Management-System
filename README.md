@@ -22,33 +22,31 @@ Don't be shy and try it yourself, there are many surprises waiting for you!  </p
 - [React Documentation](#react-documentation)
 
 ## Demo and Features
-<p>You can start by typing the word 'paradigma' (in lowercase) on the input then press the validate button</p>
+<p>As with almost everything we start with a simple login and register user screen, if you already have an existing account the app will identify if your usertype is a patient, doctor or a nurse. If you register a new user then your account will be a patient account by default</p>
 <img width="400" alt="Screenshot 2023-11-02 at 19 08 35" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/59721dfd-cd70-4f28-95cb-16876da6fba6">
 <img width="432" alt="Screenshot 2023-11-02 at 18 56 58" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/54fb119b-0cea-4fa3-a6a1-bca2bef3cddf">
 
-<p>An 'artificial' loading message will appear in order to simulate any async code or api comsuption</p>
+<p>When you log in as a patient you will be displayed a menu with five buttons that display a different Component of the app to execute one of the following patient services, for example this one where a patient can ask for a doctor appointment by just submitting date, hour and reason for the appointment </p>
 <img width="1025" alt="Screenshot 2023-11-02 at 18 58 37" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/1b07ebfc-1f05-4e05-99b3-0f7138fd68f5">
 
-<p>If the word you wrote doesn't match with 'paradigma' (Remember it's in lowercase!) then an error message will appear</p>
+<p>At any moment a patient can check the status of their appointment and see which doctor has been assigned also if the appointment has been rejected by any reason</p>
 <img width="1021" alt="Screenshot 2023-11-02 at 18 59 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/b1eda166-2b38-4211-b519-95c5f63472f3">
 
-<p>Once you match with 'password' the app will ask again if you are sure to 'delete' the State (just like Github when you want to do something dangerous 🤪)</p>
+<p>A patient can make an order of the medicines that the hospital has on inventory up to the existing amount of each medicine, a subtotal for a prouct will be constanly displayed and the total for the orders as well</p>
 <img width="833" alt="Screenshot 2023-11-02 at 18 52 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/99fa8fcb-4978-40dc-91ee-de221b18942a">
 
-
-<p>If you clicked on 'Yes, delete' then the following window will appear confirming on the deletion of your State but, we give a change to go back to the initial state so you don't get fired 😎</p>
+<p>When a nurse logs in a new screen with different Components will be displayed, on this case the only function a nurse has is to assigned a doctor to any pending appointment or rejected if there are no doctors available, when an appointment is being asigned a combobox will be display with all the doctors that have an active account</p>
 <img width="821" alt="Screenshot 2023-11-02 at 18 54 54" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/807f2687-3340-4654-b812-8255815ccc36">
 
-
-<p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
+<p>When a doctor logs in a different menu is display where they can check all their appointments that need to be take care of, these appointments are display inside differente containers/components</p>
 <img width="799" alt="Screenshot 2023-11-02 at 18 59 57" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/ab652eb3-d780-487c-8308-dccc8d3fed9a">
 
-<p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
+<p>When a doctor has finished attending a patient, it can submit a report of the diagnosis and the recommendations for the patients, this information will be available for the respective patient to see what instructions to follow</p>
 <img width="610" alt="Screenshot 2023-11-02 at 19 01 41" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/5b6b3770-2471-49cf-b42f-3e9b6eb637c2">
 
-<p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
-<img width="731" alt="Screenshot 2023-11-02 at 19 02 04" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/14fabf2e-74f9-49ef-aa36-b5d1e984fe34">
-<img width="754" alt="Screenshot 2023-11-02 at 19 02 19" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/bb3d89d1-deb2-44b7-910f-0b3b56ef0eb3">
+<p>Finally any doctor can checkout 2 reports of what medicines have been sold the most and which doctors have attended more appointments/patients</p>
+<img width="431" alt="Screenshot 2023-11-02 at 19 02 04" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/14fabf2e-74f9-49ef-aa36-b5d1e984fe34">
+<img width="454" alt="Screenshot 2023-11-02 at 19 02 19" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/bb3d89d1-deb2-44b7-910f-0b3b56ef0eb3">
 
 
 ## Installation Steps:
