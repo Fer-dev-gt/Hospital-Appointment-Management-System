@@ -1,11 +1,11 @@
 <h1 align="center" id="title">UHospital. Appointments, medicine and prescriptions management system</h1>
-<p>This a simple but really interesting app, if you look under the code you will find 3 different way in which you can manage the state of your React Components, by using good old friend useState, this hook is really good and simple to learn but if you want to go back in time you can also find and study how to manage your State with Classes, that's right! You can even learn how to use Lifecycle methods like 'componentWillMount()' to manage any logic you want to execute. 
+<p>This 🏥 UHospital Simulator app 🏥 where a patient and doctor can interact by appointments is possible thanks to joining forces from two technologies creating and using an API from the backend and using the obtained data to modify of fronted using React to render our Components.
 
-Finally you can be more elegant and make your code more scalable by managing your State with the last but not least important of the bunch, useReducer! This hook can be very powerful specially when you implemented action types and action creators so your code can be more readible!
+Uhostipal keeps all its records created by its user inside a couple of binary files where data is stored in JSON format so it can be easily obtained and used upon our frontend, you can create your own patient account a have access to different services UHospital has to offer like: making an appointement at any time, buy medicines for your prescription and see the receipts your doctors prescribed.
 
-So now you now that even if an app looks simple in the surface you can always learn new tricks when you read its code, enjoy!
+As a doctor or nurse you can manage all patients appointment request by rejecting them of accepting them and generete a proper prescription, the app will keep track of the medicines sold and all the appointments the doctors have finished.
 
-Don't be shy and try it yourself, there are many surprises waiting for you!  </p>
+There are more features and secrets inside this cool app, just try to find them all!  👨🏻‍⚕️</p>
 
 <img width="1392" alt="Screenshot 2023-11-02 at 18 48 48" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/16eaede9-0138-4653-885f-e79345d44f60">
 
@@ -22,23 +22,23 @@ Don't be shy and try it yourself, there are many surprises waiting for you!  </p
 - [React Documentation](#react-documentation)
 
 ## Demo and Features
-<p>As with almost everything we start with a simple login and register user screen, if you already have an existing account the app will identify if your usertype is a patient, doctor or a nurse. If you register a new user then your account will be a patient account by default</p>
+<p>As with almost everything in life we start with a simple login and register new user screen, if you already have an existing account the app will identify if your usertype is a patient, doctor or nurse. If you register a new user then your account will be a patient account by default</p>
 <img width="400" alt="Screenshot 2023-11-02 at 19 08 35" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/59721dfd-cd70-4f28-95cb-16876da6fba6">
 <img width="432" alt="Screenshot 2023-11-02 at 18 56 58" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/54fb119b-0cea-4fa3-a6a1-bca2bef3cddf">
 
-<p>When you log in as a patient you will be displayed a menu with five buttons that display a different Component of the app to execute one of the following patient services, for example this one where a patient can ask for a doctor appointment by just submitting date, hour and reason for the appointment </p>
+<p>When you log in as a patient you will be displayed a menu with five buttons that show a different Component of the app to execute one of the following patient services, for example this one where a patient can ask for a doctor appointment by just submitting a date, hour and reason for the appointment </p>
 <img width="1025" alt="Screenshot 2023-11-02 at 18 58 37" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/1b07ebfc-1f05-4e05-99b3-0f7138fd68f5">
 
-<p>At any moment a patient can check the status of their appointment and see which doctor has been assigned also if the appointment has been rejected by any reason</p>
+<p>At any moment a patient can check the status of their appointment and see which doctor has been assigned, also if the appointment has been rejected by any reason</p>
 <img width="1021" alt="Screenshot 2023-11-02 at 18 59 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/b1eda166-2b38-4211-b519-95c5f63472f3">
 
-<p>A patient can make an order of the medicines that the hospital has on inventory up to the existing amount of each medicine, a subtotal for a prouct will be constanly displayed and the total for the orders as well</p>
+<p>A patient can make an order of the medicines that the hospital has on inventory up to the existing amount of each medicine, a subtotal for a product will be constanly displayed and the total for the order as well</p>
 <img width="833" alt="Screenshot 2023-11-02 at 18 52 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/99fa8fcb-4978-40dc-91ee-de221b18942a">
 
-<p>When a nurse logs in a new screen with different Components will be displayed, on this case the only function a nurse has is to assigned a doctor to any pending appointment or rejected if there are no doctors available, when an appointment is being asigned a combobox will be display with all the doctors that have an active account</p>
+<p>When a nurse logs in a new screen with different Components will be displayed, on this case the only function a nurse has is to assign a doctor to any pending appointment or reject it if there are no doctors available, when an appointment is being asigned a ComboBox will be displayed with all the doctors that have an active account</p>
 <img width="821" alt="Screenshot 2023-11-02 at 18 54 54" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/807f2687-3340-4654-b812-8255815ccc36">
 
-<p>When a doctor logs in a different menu is display where they can check all their appointments that need to be take care of, these appointments are display inside differente containers/components</p>
+<p>When a doctor logs in a different menu is displayed where they can check all their appointments that need to be take care of, these appointments are displayed inside different containers/components</p>
 <img width="799" alt="Screenshot 2023-11-02 at 18 59 57" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/ab652eb3-d780-487c-8308-dccc8d3fed9a">
 
 <p>When a doctor has finished attending a patient, it can submit a report of the diagnosis and the recommendations for the patients, this information will be available for the respective patient to see what instructions to follow</p>
