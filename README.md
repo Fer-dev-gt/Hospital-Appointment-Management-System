@@ -5,11 +5,9 @@ Finally you can be more elegant and make your code more scalable by managing you
 
 So now you now that even if an app looks simple in the surface you can always learn new tricks when you read its code, enjoy!
 
-Don't be shy and try it yourself, there are many surprises waiting for you! https://fer-dev-gt.github.io/Professional-React-state-management/  </p>
+Don't be shy and try it yourself, there are many surprises waiting for you!  </p>
 
-
-<img width="1573" alt="Screenshot 2023-09-25 at 21 20 37" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/fe260619-81a4-408e-bce4-a6f2b2cddd67">
-
+<img width="1392" alt="Screenshot 2023-11-02 at 18 48 48" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/16eaede9-0138-4653-885f-e79345d44f60">
 
 ## Table of Contents
 
@@ -21,26 +19,37 @@ Don't be shy and try it yourself, there are many surprises waiting for you! http
 - [Useful resources](#useful-resources)
 - [License](#license)
 - [Author](#author)
-- [React Documentation](#Getting-Started-with-Create-React-App)
+- [React Documentation](#react-documentation)
 
 ## Demo and Features
 <p>You can start by typing the word 'paradigma' (in lowercase) on the input then press the validate button</p>
-<img width="833" alt="Screenshot 2023-09-25 at 21 25 29" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/2c85cfae-a6c2-44ad-9518-aa76939a02d2">
+<img width="400" alt="Screenshot 2023-11-02 at 19 08 35" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/59721dfd-cd70-4f28-95cb-16876da6fba6">
+<img width="432" alt="Screenshot 2023-11-02 at 18 56 58" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/54fb119b-0cea-4fa3-a6a1-bca2bef3cddf">
 
 <p>An 'artificial' loading message will appear in order to simulate any async code or api comsuption</p>
-<img width="874" alt="Screenshot 2023-09-25 at 21 24 50" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/22971166-cf7e-4769-a3d0-a1e81defc5cb">
+<img width="1025" alt="Screenshot 2023-11-02 at 18 58 37" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/1b07ebfc-1f05-4e05-99b3-0f7138fd68f5">
 
 <p>If the word you wrote doesn't match with 'paradigma' (Remember it's in lowercase!) then an error message will appear</p>
-<img width="850" alt="Screenshot 2023-09-25 at 21 28 34" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/f34f360b-4ea7-4b37-8261-d23bd8ddb6e0">
+<img width="1021" alt="Screenshot 2023-11-02 at 18 59 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/b1eda166-2b38-4211-b519-95c5f63472f3">
 
 <p>Once you match with 'password' the app will ask again if you are sure to 'delete' the State (just like Github when you want to do something dangerous 🤪)</p>
-<img width="858" alt="Screenshot 2023-09-25 at 21 29 47" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/f1035745-cd7a-42cd-a0f5-64fd277e0e08">
+<img width="833" alt="Screenshot 2023-11-02 at 18 52 16" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/99fa8fcb-4978-40dc-91ee-de221b18942a">
+
 
 <p>If you clicked on 'Yes, delete' then the following window will appear confirming on the deletion of your State but, we give a change to go back to the initial state so you don't get fired 😎</p>
-<img width="859" alt="Screenshot 2023-09-25 at 21 32 04" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/bd887aad-e755-4482-8230-d126fc768f97">
+<img width="821" alt="Screenshot 2023-11-02 at 18 54 54" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/807f2687-3340-4654-b812-8255815ccc36">
+
 
 <p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
-<img width="792" alt="Screenshot 2023-09-25 at 21 33 41" src="https://github.com/Fer-dev-gt/Professional-React-state-management/assets/119085740/4b85452a-0da9-4458-b11f-6d019a2388d4">
+<img width="799" alt="Screenshot 2023-11-02 at 18 59 57" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/ab652eb3-d780-487c-8308-dccc8d3fed9a">
+
+<p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
+<img width="610" alt="Screenshot 2023-11-02 at 19 01 41" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/5b6b3770-2471-49cf-b42f-3e9b6eb637c2">
+
+<p>Remember that even if it seems like a really basic and boring app many internal things are happening so our code can grow and don't make us wanna dia along the way 👍</p>
+<img width="731" alt="Screenshot 2023-11-02 at 19 02 04" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/14fabf2e-74f9-49ef-aa36-b5d1e984fe34">
+<img width="754" alt="Screenshot 2023-11-02 at 19 02 19" src="https://github.com/Fer-dev-gt/Hospital-Appointment-Management-System/assets/119085740/bb3d89d1-deb2-44b7-910f-0b3b56ef0eb3">
+
 
 ## Installation Steps:
 If you want to make changes to the source code you just need to:
@@ -72,7 +81,7 @@ Technologies used in the project:
 
 Made with 💜 by [Fernando Orozco](https://www.linkedin.com/in/fernando-orozco-velasquez/)
 
-# React Documentation ⬇️
+## React Documentation
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
